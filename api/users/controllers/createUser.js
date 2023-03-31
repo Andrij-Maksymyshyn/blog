@@ -1,5 +1,5 @@
 const { addUser } = require("../services");
-const { CREATED } = require("../../../errors/errorCodes");
+const { CREATED } = require("../../../helpers/helpers");
 
 const createUser = async (req, res, next) => {
   try {

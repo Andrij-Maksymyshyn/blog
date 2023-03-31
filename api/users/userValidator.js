@@ -21,7 +21,12 @@ const newUserSchema = Joi.object({
     .trim()
     .error(new Error("Email is not valid")),
 
-  password: Joi.string().regex(PASSWORD_REGEXP).required(),
+  password: Joi.string().regex(PASSWORD_REGEXP).required().label("password"),
+  password_confirmation: Joi.any()
+    .valid(Joi.ref("password"))
+    .required()
+    .label("password_confirmation")
+    .options({ messages: { "any.only": "{{#label}} does not match" } }),
 
   avatarUrl: Joi.string().regex(URL_REGEXP)
 });

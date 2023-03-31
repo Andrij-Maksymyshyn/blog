@@ -15,10 +15,13 @@ app.use("/", mainRouter);
 app.use("*", notFoundError);
 app.use(mainErrorHandler);
 
-const { PORT = 5000, DB_HOST } = process.env;
+const { PORT = 5000, DB_HOST, NODE_ENV } = process.env;
+
+if (NODE_ENV === "dev") {
+  mongoose.set("debug", true);
+}
 
 mongoose
-  .set("debug", true)
   .set("strictQuery", true)
   .connect(DB_HOST)
   .then(() => console.log(`Database connection successful.`))
