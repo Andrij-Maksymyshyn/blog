@@ -1,0 +1,23 @@
+{
+  "info": {
+    "_postman_id": "c5424b78-b975-475e-9a16-eb07a9b7893e",
+    "name": "Blog",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "24152383"
+  },
+  "item": [
+    {
+      "name": "Create user",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{api_local}}/api/users",
+          "host": ["{{api_local}}"],
+          "path": ["api", "users"]
+        }
+      },
+      "response": []
+    }
+  ]
+}

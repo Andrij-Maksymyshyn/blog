@@ -2,20 +2,23 @@ const express = require("express");
 require("dotenv").config();
 const mongoose = require("mongoose");
 const cors = require("cors");
+const logger = require("morgan");
 
 const mainRouter = require("./routes/mainRouter");
 const { NotFound } = require("./errors/ApiError");
 const { SERVER_ERROR } = require("./errors/errorCodes");
+const { PORT = 5000, DB_HOST, NODE_ENV } = process.env;
 
 const app = express();
 
+const formatsLogger = app.get("env") === "dev" ? "dev" : "short";
+
+app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());
 app.use("/", mainRouter);
 app.use("*", notFoundError);
 app.use(mainErrorHandler);
-
-const { PORT = 5000, DB_HOST, NODE_ENV } = process.env;
 
 if (NODE_ENV === "dev") {
   mongoose.set("debug", true);
