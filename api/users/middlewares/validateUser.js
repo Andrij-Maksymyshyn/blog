@@ -1,4 +1,4 @@
-const { newUserSchema } = require("../userValidator");
+const { newUserSchema } = require("../schemasValidator");
 const { BadRequest } = require("../../../errors/ApiError");
 
 const validateUser = (req, _, next) => {

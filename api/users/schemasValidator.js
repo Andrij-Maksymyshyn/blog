@@ -28,9 +28,18 @@ const newUserSchema = Joi.object({
     .label("password_confirmation")
     .options({ messages: { "any.only": "{{#label}} does not match" } }),
 
-  avatarUrl: Joi.string().regex(URL_REGEXP)
+  avatarUrl: Joi.string().regex(URL_REGEXP),
+  isDeleted: Joi.boolean().default(false)
 });
 
+const getAllUsersSchema = {
+  query: Joi.object().keys({
+    page: Joi.string().alphanum().trim().default("1"),
+    perPage: Joi.number().integer().min(1).max(100).default(3)
+  })
+};
+
 module.exports = {
-  newUserSchema
+  newUserSchema,
+  getAllUsersSchema
 };
