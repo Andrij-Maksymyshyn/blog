@@ -13,7 +13,8 @@ const userSchema = new mongoose.Schema(
       unique: true
     },
     password: { type: String, minLength: 7, required: true, default: "" },
-    avatarUrl: String
+    avatarUrl: String,
+    isDeleted: { type: Boolean, default: false }
   },
   {
     timestamps: true,

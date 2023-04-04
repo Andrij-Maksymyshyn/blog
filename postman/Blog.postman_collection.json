@@ -1,23 +1,77 @@
 {
-  "info": {
-    "_postman_id": "c5424b78-b975-475e-9a16-eb07a9b7893e",
-    "name": "Blog",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "24152383"
-  },
-  "item": [
-    {
-      "name": "Create user",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "url": {
-          "raw": "{{api_local}}/api/users",
-          "host": ["{{api_local}}"],
-          "path": ["api", "users"]
-        }
-      },
-      "response": []
-    }
-  ]
+	"info": {
+		"_postman_id": "c5424b78-b975-475e-9a16-eb07a9b7893e",
+		"name": "Blog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24152383"
+	},
+	"item": [
+		{
+			"name": "Create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fullName\": \"Mamaislove\",\r\n    \"email\": \"mama@ukr.net\",\r\n    \"password\": \"P14agcj359\",\r\n    \"password_confirmation\": \"P14agcj359\",\r\n    \"avatarUrl\": \"https://rocket7.s3.eu-central-1.amazonaws.com/user/63c0214b0c6a050f339…\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_local}}/api/users",
+					"host": [
+						"{{api_local}}"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fullName\": \"Chuvak\",\r\n    \"email\": \"chu@ukr.net\",\r\n    \"password\": \"Skol23452\",\r\n    \"password_confirmation\": \"Skol23452\",\r\n    \"avatarUrl\": \"https://rocket7.s3.eu-central-1.amazonaws.com/user/63d88135c4426fe9839…\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_local}}/api/users?page=3&perPage=3",
+					"host": [
+						"{{api_local}}"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "3"
+						},
+						{
+							"key": "perPage",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
 }
