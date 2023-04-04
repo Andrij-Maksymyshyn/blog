@@ -5,7 +5,7 @@ const getAllUsers = async (query = {}) => {
   const { page = 1, perPage = 3 } = query;
   const skip = (page - 1) * perPage;
 
-  const users = await User.find().limit(perPage).skip(skip);
+  const users = await User.find({ isDeleted: false }).limit(perPage).skip(skip);
   const total = await User.count();
 
   if (users.length === 0) {

@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"fullName\": \"Mamaislove\",\r\n    \"email\": \"mama@ukr.net\",\r\n    \"password\": \"P14agcj359\",\r\n    \"password_confirmation\": \"P14agcj359\",\r\n    \"avatarUrl\": \"https://rocket7.s3.eu-central-1.amazonaws.com/user/63c0214b0c6a050f339…\"\r\n}",
+					"raw": "{\r\n    \"fullName\": \"MaisonMan\",\r\n    \"email\": \"Maisona@ukr.net\",\r\n    \"password\": \"P14ag25asq\",\r\n    \"password_confirmation\": \"P14ag25asq\",\r\n    \"avatarUrl\": \"https://rocket7.s3.eu-central-1.amazonaws.com/user/63c0214b0c6a050f339…\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -68,6 +68,34 @@
 							"key": "perPage",
 							"value": "3"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update user by id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \r\n            \"fullName\": \"MaisonMan\",\r\n            \"email\": \"maisona@ukr.net\",\r\n            \"avatarUrl\": \"https://rocket7.s3.eu-central-1.amazonaws.com/user/63c0214b0c6a050f339…\",\r\n            \"isDeleted\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_local}}/api/users/642c2b61c5547189c65bbf39",
+					"host": [
+						"{{api_local}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"642c2b61c5547189c65bbf39"
 					]
 				}
 			},

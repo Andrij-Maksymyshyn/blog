@@ -1,11 +1,19 @@
 const usersRouter = require("express").Router();
 
-const { validateUser, validate } = require("./middlewares");
-const { getAllUsersSchema } = require("./schemasValidator");
+const { validate, objectIdValidator } = require("./middlewares");
+const {
+  getAllUsersSchema,
+  newUserSchema,
+  updateUserSchema
+} = require("./schemas");
 const controllers = require("./controllers");
 
 usersRouter.get("/", validate(getAllUsersSchema), controllers.listUsers);
 
-usersRouter.post("/", validateUser, controllers.createUser);
+usersRouter.post("/", validate(newUserSchema), controllers.createUser);
+
+usersRouter.use("/:userId", objectIdValidator("userId"));
+
+usersRouter.put("/:userId", validate(updateUserSchema), controllers.updateUser);
 
 module.exports = usersRouter;
