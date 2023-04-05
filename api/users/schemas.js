@@ -7,32 +7,42 @@ const {
   OBJECT_ID
 } = require("../../configs/regexp.enum");
 
+const userSchemaCommonKeys = {
+  fullName: Joi.string()
+    .alphanum()
+    .min(4)
+    .max(25)
+    .trim()
+    .error(new Error("fullName is not valid")),
+
+  email: Joi.string()
+    .regex(EMAIL_REGEXP)
+    .required()
+    .lowercase()
+    .trim()
+    .error(new Error("Email is not valid")),
+
+  avatarUrl: Joi.string().regex(URL_REGEXP),
+  isDeleted: Joi.boolean().default(false)
+};
+
 const newUserSchema = {
-  body: Joi.object().keys({
-    fullName: Joi.string()
-      .alphanum()
-      .min(4)
-      .max(25)
-      .trim()
-      .error(new Error("fullName is not valid")),
-
-    email: Joi.string()
-      .regex(EMAIL_REGEXP)
-      .required()
-      .lowercase()
-      .trim()
-      .error(new Error("Email is not valid")),
-
-    password: Joi.string().regex(PASSWORD_REGEXP).required().label("password"),
-    password_confirmation: Joi.any()
-      .valid(Joi.ref("password"))
-      .required()
-      .label("password_confirmation")
-      .options({ messages: { "any.only": "{{#label}} does not match" } }),
-
-    avatarUrl: Joi.string().regex(URL_REGEXP),
-    isDeleted: Joi.boolean().default(false)
-  })
+  body: Joi.object().keys(
+    Object.assign(
+      {
+        password: Joi.string()
+          .regex(PASSWORD_REGEXP)
+          .required()
+          .label("password"),
+        password_confirmation: Joi.any()
+          .valid(Joi.ref("password"))
+          .required()
+          .label("password_confirmation")
+          .options({ messages: { "any.only": "{{#label}} does not match" } })
+      },
+      userSchemaCommonKeys
+    )
+  )
 };
 
 const getAllUsersSchema = {
@@ -49,24 +59,7 @@ const updateUserSchema = {
     })
     .required(),
 
-  body: Joi.object().keys({
-    fullName: Joi.string()
-      .alphanum()
-      .min(4)
-      .max(25)
-      .trim()
-      .error(new Error("'fullName' is not valid")),
-
-    email: Joi.string()
-      .regex(EMAIL_REGEXP)
-      .required()
-      .lowercase()
-      .trim()
-      .error(new Error("Email is not valid")),
-
-    avatarUrl: Joi.string().regex(URL_REGEXP),
-    isDeleted: Joi.boolean().default(false)
-  })
+  body: Joi.object().keys(Object.assign({}, userSchemaCommonKeys))
 };
 
 module.exports = {
