@@ -1,7 +1,7 @@
-const validateUser = require("./validateUser");
 const validate = require("./validateSchema");
+const objectIdValidator = require("./objectIdValidator");
 
 module.exports = {
-  validateUser,
-  validate
+  validate,
+  objectIdValidator
 };
