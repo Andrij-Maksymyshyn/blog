@@ -20,7 +20,7 @@ usersRouter.put("/:userId", validate(updateUserSchema), controllers.updateUser);
 usersRouter.patch(
   "/:userId/isDeleted",
   validate(deleteUserSchema),
-  controllers.removeUser
+  controllers.updateUser
 );
 
 module.exports = usersRouter;
