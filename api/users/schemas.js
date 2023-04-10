@@ -63,11 +63,7 @@ const updateUserSchema = {
 };
 
 const deleteUserSchema = {
-  params: Joi.object().keys(Object.assign({}, userCommonParamsSchema)),
-
-  body: Joi.object().keys({
-    isDeleted: Joi.boolean().default(false).required()
-  })
+  params: Joi.object().keys(Object.assign({}, userCommonParamsSchema))
 };
 
 module.exports = {

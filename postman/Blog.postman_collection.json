@@ -104,11 +104,11 @@
 		{
 			"name": "Delete user by id",
 			"request": {
-				"method": "PATCH",
+				"method": "DELETE",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"isDeleted\": true\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -116,15 +116,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{api_local}}/api/users/642c2b61c5547189c65bbf39/isDeleted",
+					"raw": "{{api_local}}/api/users/642c2b61c5547189c65bbf39",
 					"host": [
 						"{{api_local}}"
 					],
 					"path": [
 						"api",
 						"users",
-						"642c2b61c5547189c65bbf39",
-						"isDeleted"
+						"642c2b61c5547189c65bbf39"
 					]
 				}
 			},

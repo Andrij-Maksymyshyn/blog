@@ -17,10 +17,10 @@ usersRouter.use("/:userId", objectIdValidator("userId"));
 
 usersRouter.put("/:userId", validate(updateUserSchema), controllers.updateUser);
 
-usersRouter.patch(
-  "/:userId/isDeleted",
+usersRouter.delete(
+  "/:userId",
   validate(deleteUserSchema),
-  controllers.updateUser
+  controllers.deleteUser
 );
 
 module.exports = usersRouter;

@@ -13,7 +13,6 @@ const getErrorMessage = (req, schema) => {
 
     req[key] = validationResult.value;
   }
-  console.log("errorMessage", errorMessage);
 
   return { message: errorMessage };
 };
