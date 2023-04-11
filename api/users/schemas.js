@@ -26,6 +26,10 @@ const userSchemaCommonKeys = {
   isDeleted: Joi.boolean().default(false)
 };
 
+const userCommonParamsSchema = {
+  userId: Joi.string().alphanum().regex(OBJECT_ID).required()
+};
+
 const newUserSchema = {
   body: Joi.object().keys(
     Object.assign(
@@ -45,7 +49,7 @@ const newUserSchema = {
   )
 };
 
-const getAllUsersSchema = {
+const allUsersSchema = {
   query: Joi.object().keys({
     page: Joi.string().alphanum().trim().default("1"),
     perPage: Joi.number().integer().min(1).max(100).default(3)
@@ -53,17 +57,18 @@ const getAllUsersSchema = {
 };
 
 const updateUserSchema = {
-  params: Joi.object()
-    .keys({
-      userId: Joi.string().alphanum().regex(OBJECT_ID).required()
-    })
-    .required(),
+  params: Joi.object().keys(Object.assign({}, userCommonParamsSchema)),
 
   body: Joi.object().keys(Object.assign({}, userSchemaCommonKeys))
 };
 
+const deleteUserSchema = {
+  params: Joi.object().keys(Object.assign({}, userCommonParamsSchema))
+};
+
 module.exports = {
   newUserSchema,
-  getAllUsersSchema,
-  updateUserSchema
+  allUsersSchema,
+  updateUserSchema,
+  deleteUserSchema
 };
