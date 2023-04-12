@@ -1,4 +1,4 @@
-const { BAD_REQUEST } = require("../../../errors/errorCodes");
+const { BAD_REQUEST } = require("../errors/errorCodes");
 
 const getErrorMessage = (req, schema) => {
   const keys = Object.keys(schema);

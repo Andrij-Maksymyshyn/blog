@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"fullName\": \"Chuvacok8\",\r\n    \"email\": \"chuvachok@ukr.net\",\r\n    \"password\": \"P14ag25asq\",\r\n    \"password_confirmation\": \"P14ag25asq\",\r\n    \"avatarUrl\": \"https://rocket7.s3.eu-central-1.amazonaws.com/user/63c0214b0c6a050f339…\"\r\n}",
+					"raw": "{\r\n    \"fullName\": \"Chuvacok Man\",\r\n    \"email\": \"chuvachok@ukr.net\",\r\n    \"password\": \"P14ag25asq\",\r\n    \"password_confirmation\": \"P14ag25asq\",\r\n    \"avatarUrl\": \"https://rocket7.s3.eu-central-1.amazonaws.com/user/63c0214b0c6a050f339…\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -28,6 +28,33 @@
 					"path": [
 						"api",
 						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"chuvachok@ukr.net\",\r\n    \"password\": \"P14ag25asq\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_local}}/api/auth",
+					"host": [
+						"{{api_local}}"
+					],
+					"path": [
+						"api",
+						"auth"
 					]
 				}
 			},
@@ -80,7 +107,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n     \r\n            \"fullName\": \"MaisonMan\",\r\n            \"email\": \"maisona@ukr.net\",\r\n            \"avatarUrl\": \"https://rocket7.s3.eu-central-1.amazonaws.com/user/63c0214b0c6a050f339…\",\r\n            \"isDeleted\": false\r\n}",
+					"raw": "{\r\n     \r\n            \"fullName\": \"MaisonMan\",\r\n            \"email\": \"maisona@ukr.net\",\r\n            \"avatarUrl\": \"https://rocket7.s3.eu-central-1.amazonaws.com/user/63c0214b0c6a050f339…\",\r\n            \"isDeleted\": true\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

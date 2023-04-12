@@ -9,11 +9,10 @@ const {
 
 const userSchemaCommonKeys = {
   fullName: Joi.string()
-    .alphanum()
     .min(4)
     .max(25)
     .trim()
-    .error(new Error("fullName is not valid")),
+    .error(new Error("FullName is not valid")),
 
   email: Joi.string()
     .regex(EMAIL_REGEXP)

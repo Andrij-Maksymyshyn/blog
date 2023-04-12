@@ -1,7 +1,9 @@
-const validate = require("./validateSchema");
 const objectIdValidator = require("./objectIdValidator");
+const checkUserDuplicates = require("./checkUserDuplicates");
+const getUserDynamicly = require("./getUserDynamicly");
 
 module.exports = {
-  validate,
-  objectIdValidator
+  objectIdValidator,
+  checkUserDuplicates,
+  getUserDynamicly
 };
