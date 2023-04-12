@@ -48,13 +48,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{api_local}}/api/auth",
+					"raw": "{{api_local}}/api/auth/login",
 					"host": [
 						"{{api_local}}"
 					],
 					"path": [
 						"api",
-						"auth"
+						"auth",
+						"login"
 					]
 				}
 			},

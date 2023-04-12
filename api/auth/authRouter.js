@@ -6,6 +6,6 @@ const { getUserDynamicly } = require("../users/middlewares");
 const controllers = require("./controllers");
 
 authRouter.use(getUserDynamicly("email", "body"));
-authRouter.post("/", validate(loginUserSchema), controllers.loginUser);
+authRouter.post("/login", validate(loginUserSchema), controllers.loginUser);
 
 module.exports = authRouter;

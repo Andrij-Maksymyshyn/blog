@@ -39,6 +39,7 @@ app.listen(PORT, error => {
     process.exit(1);
   }
   console.log(`Server is running on port ${PORT}`);
+  require("./cronJobs");
 });
 
 function notFoundError(_, _, next) {
