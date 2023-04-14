@@ -34,7 +34,53 @@
 			"response": []
 		},
 		{
+			"name": "Create post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE0OTQ3NjMsImV4cCI6MTY4MTUwMTk2M30.YhCgBQ57AMdVvWlYDWurRPJ_09fBA-LOykAbcNT4g8w",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Test article\",\r\n    \"text\": \"Hello world\",\r\n    \"tags\": [\"node\", \"react\", \"mern\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_local}}/api/posts",
+					"host": [
+						"{{api_local}}"
+					],
+					"path": [
+						"api",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Login user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonBody = JSON.parse(responseBody);\r",
+							"pm.environment.set(\"accessToken\", jsonBody.accessToken);\r",
+							"pm.environment.set(\"refreshToken\", jsonBody.refreshToken);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -96,6 +142,43 @@
 							"key": "perPage",
 							"value": "3"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "My profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE0OTQ3NjMsImV4cCI6MTY4MTUwMTk2M30.YhCgBQ57AMdVvWlYDWurRPJ_09fBA-LOykAbcNT4g8w",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_local}}/api/users/profile",
+					"host": [
+						"{{api_local}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"profile"
 					]
 				}
 			},

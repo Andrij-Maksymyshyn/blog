@@ -17,6 +17,19 @@ const loginUserSchema = {
     .required()
 };
 
+const headersSchema = {
+  headers: Joi.object()
+    .keys({
+      authorization: Joi.string()
+        .min(2)
+        .max(256)
+        .required()
+        .error(new Error("Missing token or invalid token"))
+    })
+    .options({ allowUnknown: true })
+};
+
 module.exports = {
-  loginUserSchema
+  loginUserSchema,
+  headersSchema
 };

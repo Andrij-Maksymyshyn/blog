@@ -1,11 +1,13 @@
 const {
   hashPassword,
   checkPasswords,
-  generateAccessTokenPair
+  generateAccessTokenPair,
+  verifyToken
 } = require("./oauthService");
 
 module.exports = {
   hashPassword,
   checkPasswords,
-  generateAccessTokenPair
+  generateAccessTokenPair,
+  verifyToken
 };

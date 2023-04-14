@@ -29,8 +29,26 @@ const generateAccessTokenPair = (encodeData = {}) => {
   };
 };
 
+const verifyToken = (token = "", tokenType = "") => {
+  switch (tokenType) {
+    case "accessToken":
+      tokenType = ACCESS_TOKEN_SECRET;
+      break;
+
+    case "refreshToken":
+      tokenType = REFRESH_TOKEN_SECRET;
+      break;
+
+    default:
+      throw new BadRequest(error.message || "Invalid token (signature)");
+  }
+
+  return jwt.verify(token, tokenType);
+};
+
 module.exports = {
   hashPassword,
   checkPasswords,
-  generateAccessTokenPair
+  generateAccessTokenPair,
+  verifyToken
 };

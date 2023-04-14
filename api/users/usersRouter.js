@@ -6,15 +6,24 @@ const {
   checkUserDuplicates,
   getUserDynamicly
 } = require("./middlewares");
+const { isAuth } = require("../auth/middlewares");
 const {
   allUsersSchema,
   newUserSchema,
   updateUserSchema,
   deleteUserSchema
 } = require("./usersSchemas");
+const { headersSchema } = require("../auth/authSchemas");
 const controllers = require("./controllers");
 
 usersRouter.get("/", validate(allUsersSchema), controllers.listUsers);
+
+usersRouter.get(
+  "/profile",
+  validate(headersSchema),
+  isAuth,
+  controllers.getMyProfile
+);
 
 usersRouter.post(
   "/",
