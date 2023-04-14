@@ -1,10 +1,11 @@
-const getMyProfile = (req, res, next) => {
+const { getByParams } = require("../../posts/services");
+
+const getMyProfile = async (req, res, next) => {
   try {
-    const { fullName } = req.user.toObject();
+    const posts = await getByParams({ user: req.user.toObject()?._id });
 
     res.status(200).json({
-      ...req.user.toObject(),
-      message: `Welcome dear, ${fullName}`
+      posts
     });
   } catch (error) {
     console.log(error);
