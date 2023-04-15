@@ -24,7 +24,7 @@ const headersSchema = {
         .min(2)
         .max(256)
         .required()
-        .error(new Error("Missing token or invalid token"))
+        .error(new Error("Missing token or invalid token. Please, sign in"))
     })
     .options({ allowUnknown: true })
 };

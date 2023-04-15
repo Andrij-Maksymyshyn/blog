@@ -1,5 +1,7 @@
 const Joi = require("joi");
 
+const { URL_REGEXP } = require("../../configs/regexp.enum");
+
 const postSchemaCommonKeys = {
   title: Joi.string()
     .min(3)
@@ -14,7 +16,7 @@ const postSchemaCommonKeys = {
 
   viewsCount: Joi.number().integer().min(0).default(0),
 
-  imageUrl: Joi.string().default("")
+  imageUrl: Joi.string().regex(URL_REGEXP).default("")
 };
 
 const newPostSchema = {
