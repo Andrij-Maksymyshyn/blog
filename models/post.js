@@ -25,7 +25,8 @@ const postSchema = new mongoose.Schema(
       ref: "User",
       required: true
     },
-    imageUrl: String
+    imageUrl: String,
+    isDeleted: { type: Boolean, default: false }
   },
   {
     timestamps: true,

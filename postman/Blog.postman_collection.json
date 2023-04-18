@@ -40,13 +40,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE1NTI2NjYsImV4cCI6MTY4MTU1OTg2Nn0.ytcP9voa5GDseQhfEBQAx6wlyK14uZX_zMzIsde1E6M",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE4NDUwMjcsImV4cCI6MTY4MTg1MjIyN30.dLYTwMrnXO7yHiQmr1eUkzcWz3xXNas5ufQ4doDqF3k",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Test article\",\r\n    \"text\": \"Hello world\",\r\n    \"tags\": [\"node\", \"react\", \"mern\"]\r\n}",
+					"raw": "{\r\n    \"title\": \"Policy\",\r\n    \"text\": \"International policy\" \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -148,6 +148,48 @@
 			"response": []
 		},
 		{
+			"name": "Get all posts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE4NDUwMjcsImV4cCI6MTY4MTg1MjIyN30.dLYTwMrnXO7yHiQmr1eUkzcWz3xXNas5ufQ4doDqF3k",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{api_local}}/api/posts?sortBy=title&order=DESC&page=3&perPage=3",
+					"host": [
+						"{{api_local}}"
+					],
+					"path": [
+						"api",
+						"posts"
+					],
+					"query": [
+						{
+							"key": "sortBy",
+							"value": "title"
+						},
+						{
+							"key": "order",
+							"value": "DESC"
+						},
+						{
+							"key": "page",
+							"value": "3"
+						},
+						{
+							"key": "perPage",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "My profile",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -157,7 +199,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE1NTI2NjYsImV4cCI6MTY4MTU1OTg2Nn0.ytcP9voa5GDseQhfEBQAx6wlyK14uZX_zMzIsde1E6M",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE4NDUwMjcsImV4cCI6MTY4MTg1MjIyN30.dLYTwMrnXO7yHiQmr1eUkzcWz3xXNas5ufQ4doDqF3k",
 						"type": "text"
 					}
 				],
