@@ -14,6 +14,10 @@ const oauthSchema = new mongoose.Schema(
   }
 );
 
+oauthSchema.pre(/^find/, function () {
+  this.populate("user");
+});
+
 const Oauth = mongoose.model("Oauth", oauthSchema);
 
 module.exports = {

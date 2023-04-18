@@ -1,9 +1,9 @@
-const { addUser } = require("../services");
+const { addPost } = require("../services");
 const { CREATED } = require("../../../helpers/helpers");
 
-const createUser = async (req, res, next) => {
+const createPost = async (req, res, next) => {
   try {
-    const result = await addUser(req.body);
+    const result = await addPost(req.body, req.user);
 
     res.status(CREATED).json({
       data: {
@@ -15,4 +15,4 @@ const createUser = async (req, res, next) => {
   }
 };
 
-module.exports = createUser;
+module.exports = createPost;
