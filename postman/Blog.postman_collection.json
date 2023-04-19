@@ -154,12 +154,12 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE4NDUwMjcsImV4cCI6MTY4MTg1MjIyN30.dLYTwMrnXO7yHiQmr1eUkzcWz3xXNas5ufQ4doDqF3k",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE4ODY4NTksImV4cCI6MTY4MTg5NDA1OX0.lAGJrubY46R1IKN32KH6SFjbRTmYQNjwYBS7m_1yre8",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "{{api_local}}/api/posts?sortBy=title&order=DESC&page=3&perPage=3",
+					"raw": "{{api_local}}/api/posts?sortBy=title&order=asc&page=3&perPage=3",
 					"host": [
 						"{{api_local}}"
 					],
@@ -174,7 +174,7 @@
 						},
 						{
 							"key": "order",
-							"value": "DESC"
+							"value": "asc"
 						},
 						{
 							"key": "page",

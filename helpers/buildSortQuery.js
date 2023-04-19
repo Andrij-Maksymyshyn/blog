@@ -1,7 +1,7 @@
 const { ASC, DESC } = require("../configs/sortOrder.enum");
 
 const buildSortQuery = (sortBy, order) => {
-  const sortingOrder = order === "DESC" ? DESC : ASC;
+  const sortingOrder = order === "desc" ? DESC : ASC;
 
   if (sortBy === "date") {
     return { _id: sortingOrder };

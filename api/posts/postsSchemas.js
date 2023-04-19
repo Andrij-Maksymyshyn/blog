@@ -42,8 +42,8 @@ const allPostsSchema = {
       .default("_id")
       .error(new Error("Please enter a valid 'sortBy' parameter")),
     order: Joi.string()
-      .valid("ASC", "DESC")
-      .default("ASC")
+      .valid("asc", "desc")
+      .default("asc")
       .error(new Error("Please enter a valid 'order' parameter"))
   })
 };
