@@ -3,8 +3,8 @@ const { BadRequest } = require("../../../errors/ApiError");
 const { buildSortQuery } = require("../../../helpers/buildSortQuery");
 
 const getAllPosts = async (query = {}) => {
-  const { sortBy = "_id", order = "asc", page = 1, perPage = 3 } = query;
-  const sortQuery = buildSortQuery(sortBy, order);
+  const { sortBy = "asc(_id)", page = 1, perPage = 3 } = query;
+  const sortQuery = buildSortQuery(sortBy);
   const skip = (page - 1) * perPage;
 
   const posts = await Post.find({ isDeleted: false })

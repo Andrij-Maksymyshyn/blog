@@ -1,13 +1,19 @@
-const { ASC, DESC } = require("../configs/sortOrder.enum");
+const buildSortQuery = sortBy => {
+  const entries = sortBy
+    .split(",")
+    .map(e =>
+      e
+        .replace("(", ", ")
+        .replace(")", "")
+        .replace("asc,", "1")
+        .replace("desc,", "-1")
+        .split(" ")
+        .reverse()
+    );
 
-const buildSortQuery = (sortBy, order) => {
-  const sortingOrder = order === "desc" ? DESC : ASC;
+  const queryToSort = Object.fromEntries(entries);
 
-  if (sortBy === "date") {
-    return { _id: sortingOrder };
-  }
-
-  return { [sortBy]: sortingOrder };
+  return queryToSort;
 };
 
 module.exports = {

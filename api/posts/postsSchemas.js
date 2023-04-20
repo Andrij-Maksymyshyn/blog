@@ -1,14 +1,6 @@
 const Joi = require("joi");
 
-const { URL_REGEXP } = require("../../configs/regexp.enum");
-
-const {
-  ID,
-  TITLE,
-  TEXT,
-  VIEWSCOUNT,
-  DATE
-} = require("../../configs/sortFields.enum");
+const { URL_REGEXP, SORT_BY } = require("../../configs/regexp.enum");
 
 const postSchemaCommonKeys = {
   title: Joi.string()
@@ -38,13 +30,14 @@ const allPostsSchema = {
     page: Joi.string().alphanum().trim().default("1"),
     perPage: Joi.number().integer().min(1).max(100).default(3),
     sortBy: Joi.string()
-      .valid(ID, TITLE, TEXT, VIEWSCOUNT, DATE)
-      .default("_id")
-      .error(new Error("Please enter a valid 'sortBy' parameter")),
-    order: Joi.string()
-      .valid("asc", "desc")
-      .default("asc")
-      .error(new Error("Please enter a valid 'order' parameter"))
+      .trim()
+      .regex(SORT_BY)
+      .default("asc(_id)")
+      .error(
+        new Error(
+          "Please enter a valid 'sortBy' parameter. Must be asc(parametr to sort) or desc(parametr to sort)"
+        )
+      )
   })
 };
 

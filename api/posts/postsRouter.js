@@ -6,7 +6,7 @@ const { newPostSchema, allPostsSchema } = require("./postsSchemas");
 
 const controllers = require("./controllers");
 
-postsRouter.get("/", isAuth, validate(allPostsSchema), controllers.listPosts);
+postsRouter.get("/", validate(allPostsSchema), controllers.listPosts);
 
 postsRouter.post("/", isAuth, validate(newPostSchema), controllers.createPost);
 
