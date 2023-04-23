@@ -11,8 +11,8 @@ const getAllPosts = async (query = {}) => {
 
   const posts = await Post.find(filterQuery)
     .sort(sortQuery)
-    .limit(perPage)
-    .skip(skip);
+    .skip(skip)
+    .limit(perPage);
 
   const total = await Post.count(filterQuery);
 
