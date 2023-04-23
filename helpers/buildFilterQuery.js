@@ -1,5 +1,4 @@
 const buildFilterQuery = (query = {}) => {
-  console.log("query:", query);
   const filterQuery = { isDeleted: false };
   const titleFilter = {};
   const dateFilter = {};
