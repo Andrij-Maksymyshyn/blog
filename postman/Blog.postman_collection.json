@@ -153,7 +153,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{api_local}}/api/posts?authorId=6444040fc4678c997eec9217,6436a056b07083baf6e1c4f9&dateGte=2023-04-16&dateLte=2023-04-23&tag=trucks,node&page=1&perPage=3",
+					"raw": "{{api_local}}/api/posts?authorId=6444040fc4678c997eec9217,6436a056b07083baf6e1c4f9&dateGte=2023-04-16T00:00:00Z&dateLte=2023-04-23T00:00:00Z&tag=trucks,node&page=1&perPage=3",
 					"host": [
 						"{{api_local}}"
 					],
@@ -168,11 +168,11 @@
 						},
 						{
 							"key": "dateGte",
-							"value": "2023-04-16"
+							"value": "2023-04-16T00:00:00Z"
 						},
 						{
 							"key": "dateLte",
-							"value": "2023-04-23"
+							"value": "2023-04-23T00:00:00Z"
 						},
 						{
 							"key": "tag",
