@@ -1,12 +1,6 @@
 const buildFilterQuery = (query = {}) => {
   const filterQuery = { isDeleted: false };
-  const titleFilter = {};
   const dateFilter = {};
-  const tagFilter = {};
-
-  if (query.titleEq) {
-    titleFilter.$eq = query.titleEq;
-  }
 
   if (query.dateGte) {
     dateFilter.$gte = query.dateGte;
@@ -16,26 +10,20 @@ const buildFilterQuery = (query = {}) => {
     dateFilter.$lte = query.dateLte;
   }
 
-  if (query.tagEq) {
-    tagFilter.$in = query.tagEq;
+  if (query.tag) {
+    filterQuery.tags = {
+      $in: query.tag.split(",")
+    };
   }
 
   if (query.authorId) {
     Object.assign(filterQuery, {
-      user: query.authorId
+      user: query.authorId.split(",")
     });
-  }
-
-  if (Object.keys(titleFilter).length) {
-    filterQuery.title = titleFilter;
   }
 
   if (Object.keys(dateFilter).length) {
     filterQuery.date = dateFilter;
-  }
-
-  if (Object.keys(tagFilter).length) {
-    filterQuery.tags = tagFilter;
   }
 
   return filterQuery;

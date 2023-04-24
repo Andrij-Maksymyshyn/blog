@@ -43,10 +43,9 @@ const allPostsSchema = {
           "Please enter a valid 'sortBy' parameter. Must be asc(parametr to sort) or desc(parametr to sort)"
         )
       ),
-    titleEq: Joi.string().trim(),
     dateGte: Joi.string().trim().regex(DATE),
     dateLte: Joi.string().trim().regex(DATE),
-    tagEq: Joi.string().trim(),
+    tag: Joi.string().trim(),
     authorId: Joi.string().trim().regex(OBJECT_ID)
   })
 };

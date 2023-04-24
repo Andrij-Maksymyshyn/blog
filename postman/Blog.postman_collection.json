@@ -40,13 +40,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODIxNzkxMjcsImV4cCI6MTY4MjE4NjMyN30.32cvb8fnv-ctxi64RBOKHBppsLktXAhOK-97IHVrlaU",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODIzMzY1NzMsImV4cCI6MTY4MjM0Mzc3M30.0ENGpDLlrId2TV8RvPbIf3u06IMCRCqwt4XYBJG1wtk",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Cars\",\r\n    \"text\": \"car technologies\"\r\n}",
+					"raw": "{\r\n    \"title\": \"Cars\",\r\n    \"text\": \"car technologies\",\r\n    \"tags\": [\"trucks\", \"motocycles\"]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -86,7 +86,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"chuvachok@ukr.net\",\r\n    \"password\": \"P14ag25asq\"\r\n}",
+					"raw": "{\r\n    \"email\": \"batman@ukr.net\",\r\n    \"password\": \"1248Pka59\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -151,15 +151,9 @@
 			"name": "Get all posts",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE5MDYyODUsImV4cCI6MTY4MTkxMzQ4NX0.8pHULotGI7NS66RUlfmWmKPU1yhdEebOl6QIKncoWho",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "{{api_local}}/api/posts?authorId=6444040fc4678c997eec9217&dateGte=2023-04-16&dateLte=2023-04-23&titleEq=Cars&sortBy=desc(title),asc(_id)&page=1&perPage=3",
+					"raw": "{{api_local}}/api/posts?authorId=6444040fc4678c997eec9217,6436a056b07083baf6e1c4f9&dateGte=2023-04-16&dateLte=2023-04-23&tag=trucks,node&page=1&perPage=3",
 					"host": [
 						"{{api_local}}"
 					],
@@ -170,7 +164,7 @@
 					"query": [
 						{
 							"key": "authorId",
-							"value": "6444040fc4678c997eec9217"
+							"value": "6444040fc4678c997eec9217,6436a056b07083baf6e1c4f9"
 						},
 						{
 							"key": "dateGte",
@@ -181,12 +175,8 @@
 							"value": "2023-04-23"
 						},
 						{
-							"key": "titleEq",
-							"value": "Cars"
-						},
-						{
-							"key": "sortBy",
-							"value": "desc(title),asc(_id)"
+							"key": "tag",
+							"value": "trucks,node"
 						},
 						{
 							"key": "page",
