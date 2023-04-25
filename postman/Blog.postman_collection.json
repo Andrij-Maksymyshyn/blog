@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"fullName\": \"Chuvacok Man\",\r\n    \"email\": \"chuvachok@ukr.net\",\r\n    \"password\": \"P14ag25asq\",\r\n    \"password_confirmation\": \"P14ag25asq\",\r\n    \"avatarUrl\": \"https://rocket7.s3.eu-central-1.amazonaws.com/user/63c0214b0c6a050f339…\"\r\n}",
+					"raw": "{\r\n    \"fullName\": \"Batman\",\r\n    \"email\": \"batman@ukr.net\",\r\n    \"password\": \"1248Pka59\",\r\n    \"password_confirmation\": \"1248Pka59\",\r\n    \"avatarUrl\": \"https://rocket7.s3.eu-central-1.amazonaws.com/user/63c0214b0c6a050f339…\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -40,13 +40,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE1NTI2NjYsImV4cCI6MTY4MTU1OTg2Nn0.ytcP9voa5GDseQhfEBQAx6wlyK14uZX_zMzIsde1E6M",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODIzMzY1NzMsImV4cCI6MTY4MjM0Mzc3M30.0ENGpDLlrId2TV8RvPbIf3u06IMCRCqwt4XYBJG1wtk",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Test article\",\r\n    \"text\": \"Hello world\",\r\n    \"tags\": [\"node\", \"react\", \"mern\"]\r\n}",
+					"raw": "{\r\n    \"title\": \"Cars\",\r\n    \"text\": \"car technologies\",\r\n    \"tags\": [\"trucks\", \"motocycles\"]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -86,7 +86,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"chuvachok@ukr.net\",\r\n    \"password\": \"P14ag25asq\"\r\n}",
+					"raw": "{\r\n    \"email\": \"batman@ukr.net\",\r\n    \"password\": \"1248Pka59\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -125,7 +125,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{api_local}}/api/users?page=3&perPage=3",
+					"raw": "{{api_local}}/api/users?page=4&perPage=3",
 					"host": [
 						"{{api_local}}"
 					],
@@ -136,7 +136,51 @@
 					"query": [
 						{
 							"key": "page",
+							"value": "4"
+						},
+						{
+							"key": "perPage",
 							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_local}}/api/posts?authorId=6444040fc4678c997eec9217,6436a056b07083baf6e1c4f9&dateGte=2023-04-16T00:00:00Z&dateLte=2023-04-23T00:00:00Z&tag=trucks,node&page=1&perPage=3",
+					"host": [
+						"{{api_local}}"
+					],
+					"path": [
+						"api",
+						"posts"
+					],
+					"query": [
+						{
+							"key": "authorId",
+							"value": "6444040fc4678c997eec9217,6436a056b07083baf6e1c4f9"
+						},
+						{
+							"key": "dateGte",
+							"value": "2023-04-16T00:00:00Z"
+						},
+						{
+							"key": "dateLte",
+							"value": "2023-04-23T00:00:00Z"
+						},
+						{
+							"key": "tag",
+							"value": "trucks,node"
+						},
+						{
+							"key": "page",
+							"value": "1"
 						},
 						{
 							"key": "perPage",
@@ -157,7 +201,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE1NTI2NjYsImV4cCI6MTY4MTU1OTg2Nn0.ytcP9voa5GDseQhfEBQAx6wlyK14uZX_zMzIsde1E6M",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE4NDUwMjcsImV4cCI6MTY4MTg1MjIyN30.dLYTwMrnXO7yHiQmr1eUkzcWz3xXNas5ufQ4doDqF3k",
 						"type": "text"
 					}
 				],
