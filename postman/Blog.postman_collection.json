@@ -257,6 +257,34 @@
 			"response": []
 		},
 		{
+			"name": "Update post by id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Science\",\r\n    \"text\": \"New technologies\",\r\n    \"tags\": [\"vaccines\", \"researches\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_local}}/api/posts/6442ea1790c49ec406777ddb",
+					"host": [
+						"{{api_local}}"
+					],
+					"path": [
+						"api",
+						"posts",
+						"6442ea1790c49ec406777ddb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Delete user by id",
 			"request": {
 				"method": "DELETE",

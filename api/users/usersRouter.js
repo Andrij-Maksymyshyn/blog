@@ -1,11 +1,7 @@
 const usersRouter = require("express").Router();
 
-const validate = require("../../commonMiddleware/validateSchema");
-const {
-  objectIdValidator,
-  checkUserDuplicates,
-  getUserDynamicly
-} = require("./middlewares");
+const { objectIdValidator, validate } = require("../../commonMiddleware");
+const { checkUserDuplicates, getUserDynamicly } = require("./middlewares");
 const { isAuth } = require("../auth/middlewares");
 const {
   allUsersSchema,
