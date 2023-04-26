@@ -60,8 +60,13 @@ const updatePostSchema = {
   body: Joi.object().keys(Object.assign({}, postSchemaCommonKeys))
 };
 
+const deletePostSchema = {
+  params: Joi.object().keys(Object.assign({}, postCommonParamsSchema))
+};
+
 module.exports = {
   newPostSchema,
   allPostsSchema,
-  updatePostSchema
+  updatePostSchema,
+  deletePostSchema
 };
