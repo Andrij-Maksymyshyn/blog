@@ -1,6 +1,6 @@
 const authRouter = require("express").Router();
 
-const validate = require("../../commonMiddleware/validateSchema");
+const { validate } = require("../../commonMiddleware");
 const { loginUserSchema } = require("./authSchemas");
 const { getUserDynamicly } = require("../users/middlewares");
 const controllers = require("./controllers");

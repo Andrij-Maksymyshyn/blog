@@ -1,6 +1,6 @@
 const ObjectId = require("mongoose").Types.ObjectId;
 
-const { BadRequest } = require("../../../errors/ApiError");
+const { BadRequest } = require("../errors/ApiError");
 
 const objectIdValidator = paramName => (req, _, next) => {
   try {

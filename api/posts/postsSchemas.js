@@ -26,6 +26,10 @@ const postSchemaCommonKeys = {
   isDeleted: Joi.boolean().default(false)
 };
 
+const postCommonParamsSchema = {
+  postId: Joi.string().alphanum().regex(OBJECT_ID).required()
+};
+
 const newPostSchema = {
   body: Joi.object().keys(Object.assign({}, postSchemaCommonKeys))
 };
@@ -50,7 +54,14 @@ const allPostsSchema = {
   })
 };
 
+const updatePostSchema = {
+  params: Joi.object().keys(Object.assign({}, postCommonParamsSchema)),
+
+  body: Joi.object().keys(Object.assign({}, postSchemaCommonKeys))
+};
+
 module.exports = {
   newPostSchema,
-  allPostsSchema
+  allPostsSchema,
+  updatePostSchema
 };
