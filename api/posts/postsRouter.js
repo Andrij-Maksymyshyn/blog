@@ -5,7 +5,8 @@ const { objectIdValidator, validate } = require("../../commonMiddleware");
 const {
   newPostSchema,
   allPostsSchema,
-  updatePostSchema
+  updatePostSchema,
+  deletePostSchema
 } = require("./postsSchemas");
 
 const controllers = require("./controllers");
@@ -16,6 +17,18 @@ postsRouter.post("/", isAuth, validate(newPostSchema), controllers.createPost);
 
 postsRouter.use("/:postId", objectIdValidator("postId"));
 
-postsRouter.put("/:postId", validate(updatePostSchema), controllers.updatePost);
+postsRouter.put(
+  "/:postId",
+  isAuth,
+  validate(updatePostSchema),
+  controllers.updatePost
+);
+
+postsRouter.delete(
+  "/:postId",
+  isAuth,
+  validate(deletePostSchema),
+  controllers.deletePost
+);
 
 module.exports = postsRouter;

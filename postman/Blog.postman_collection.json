@@ -40,13 +40,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODIzMzY1NzMsImV4cCI6MTY4MjM0Mzc3M30.0ENGpDLlrId2TV8RvPbIf3u06IMCRCqwt4XYBJG1wtk",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODI1MTM0MjIsImV4cCI6MTY4MjUyMDYyMn0.N-C001pttzNBaFMs7I316BtrD_eRhAko_eQ34ao9Up0",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Cars\",\r\n    \"text\": \"car technologies\",\r\n    \"tags\": [\"trucks\", \"motocycles\"]\r\n}",
+					"raw": "{\r\n    \"title\": \"Animals\",\r\n    \"text\": \"animal researches\",\r\n    \"tags\": [\"whales\", \"elephants\", \"mosquitoes\"]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -153,7 +153,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{api_local}}/api/posts?authorId=6444040fc4678c997eec9217,6436a056b07083baf6e1c4f9&dateGte=2023-04-16T00:00:00Z&dateLte=2023-04-23T00:00:00Z&tag=trucks,node&page=1&perPage=3",
+					"raw": "{{api_local}}/api/posts?authorId=6444040fc4678c997eec9217",
 					"host": [
 						"{{api_local}}"
 					],
@@ -164,27 +164,32 @@
 					"query": [
 						{
 							"key": "authorId",
-							"value": "6444040fc4678c997eec9217,6436a056b07083baf6e1c4f9"
+							"value": "6444040fc4678c997eec9217"
 						},
 						{
 							"key": "dateGte",
-							"value": "2023-04-16T00:00:00Z"
+							"value": "2023-04-16T00:00:00Z",
+							"disabled": true
 						},
 						{
 							"key": "dateLte",
-							"value": "2023-04-23T00:00:00Z"
+							"value": "2023-04-23T00:00:00Z",
+							"disabled": true
 						},
 						{
 							"key": "tag",
-							"value": "trucks,node"
+							"value": "trucks,node",
+							"disabled": true
 						},
 						{
 							"key": "page",
-							"value": "1"
+							"value": "4",
+							"disabled": true
 						},
 						{
 							"key": "perPage",
-							"value": "3"
+							"value": "3",
+							"disabled": true
 						}
 					]
 				}
@@ -260,10 +265,16 @@
 			"name": "Update post by id",
 			"request": {
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODI1MTM0MjIsImV4cCI6MTY4MjUyMDYyMn0.N-C001pttzNBaFMs7I316BtrD_eRhAko_eQ34ao9Up0",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Science\",\r\n    \"text\": \"New technologies\",\r\n    \"tags\": [\"vaccines\", \"researches\"]\r\n}",
+					"raw": "{\r\n    \"title\": \"Cars\",\r\n    \"text\": \"car technologies\",\r\n    \"tags\": [\r\n        \"trucks\",\r\n        \"motocycles\",\r\n        \"sport cars\"\r\n    ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -271,14 +282,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{api_local}}/api/posts/6442ea1790c49ec406777ddb",
+					"raw": "{{api_local}}/api/posts/6446750afa3b9e444e43fe8c",
 					"host": [
 						"{{api_local}}"
 					],
 					"path": [
 						"api",
 						"posts",
-						"6442ea1790c49ec406777ddb"
+						"6446750afa3b9e444e43fe8c"
 					]
 				}
 			},
@@ -307,6 +318,40 @@
 						"api",
 						"users",
 						"642c2b61c5547189c65bbf39"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete post by id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODI1MTM0MjIsImV4cCI6MTY4MjUyMDYyMn0.N-C001pttzNBaFMs7I316BtrD_eRhAko_eQ34ao9Up0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_local}}/api/posts/644920acddccb1b1c4f71c82",
+					"host": [
+						"{{api_local}}"
+					],
+					"path": [
+						"api",
+						"posts",
+						"644920acddccb1b1c4f71c82"
 					]
 				}
 			},
