@@ -20,6 +20,4 @@ oauthSchema.pre(/^find/, function () {
 
 const Oauth = mongoose.model("Oauth", oauthSchema);
 
-module.exports = {
-  Oauth
-};
+module.exports = Oauth;
