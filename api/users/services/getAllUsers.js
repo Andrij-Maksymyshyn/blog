@@ -1,5 +1,4 @@
 const { User } = require("../../../models");
-const { BadRequest } = require("../../../errors/ApiError");
 
 const getAllUsers = async (query = {}) => {
   const { page = 1, perPage = 3 } = query;
@@ -7,12 +6,6 @@ const getAllUsers = async (query = {}) => {
 
   const users = await User.find({ isDeleted: false }).skip(skip).limit(perPage);
   const total = await User.count();
-
-  if (users.length === 0) {
-    throw new BadRequest(
-      `There isn't data with page: ${page} and perPage: ${perPage}`
-    );
-  }
 
   return {
     data: users,

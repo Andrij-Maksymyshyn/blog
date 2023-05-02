@@ -17,11 +17,11 @@ describe("getSingleUser function", () => {
       isDeleted: false
     };
 
-    User.findOne.mockResolvedValueOnce(() => mockReturn);
+    User.findOne.mockResolvedValueOnce(mockReturn);
     const result = await getSingleUser(id);
 
     expect(User.findOne).toHaveBeenCalledWith(mockReturn);
-    expect(result()).toBe(mockReturn);
+    expect(result).toBe(mockReturn);
   });
 
   it("should return null, when user doesn't exist", async () => {
@@ -30,12 +30,12 @@ describe("getSingleUser function", () => {
       isDeleted: false
     };
 
-    User.findOne.mockResolvedValueOnce(() => null);
+    User.findOne.mockResolvedValueOnce(null);
 
     const result = await getSingleUser(newId);
 
     expect(User.findOne).toHaveBeenCalledWith(mockReturn);
 
-    expect(result()).toBeNull();
+    expect(result).toBeNull();
   });
 });
