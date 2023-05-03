@@ -14,27 +14,32 @@ describe("getSingleUser function", () => {
   it("should return user, when user exists", async () => {
     const mockReturn = {
       _id: id,
+      name: "Andrii",
+      email: "andrij.gmail@com.ua",
+      postUrl: "someUrl",
       isDeleted: false
     };
 
     User.findOne.mockResolvedValueOnce(mockReturn);
+
     const result = await getSingleUser(id);
 
-    expect(User.findOne).toHaveBeenCalledWith(mockReturn);
+    expect(User.findOne).toHaveBeenCalledWith({
+      _id: id,
+      isDeleted: false
+    });
     expect(result).toBe(mockReturn);
   });
 
   it("should return null, when user doesn't exist", async () => {
-    const mockReturn = {
-      _id: newId,
-      isDeleted: false
-    };
-
     User.findOne.mockResolvedValueOnce(null);
 
     const result = await getSingleUser(newId);
 
-    expect(User.findOne).toHaveBeenCalledWith(mockReturn);
+    expect(User.findOne).toHaveBeenCalledWith({
+      _id: newId,
+      isDeleted: false
+    });
 
     expect(result).toBeNull();
   });

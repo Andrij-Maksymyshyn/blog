@@ -36,24 +36,22 @@ describe("addUser function", () => {
   });
 
   it("function should throw error, when we didn't pass password", async () => {
-    const addUser = jest.fn(x => x);
-
-    addUser.mockResolvedValueOnce(() => {
-      throw new Error("not passed password");
-    });
-
     const mockedUser = {
       fullName: "fake_name",
       email: "fake_email",
       avatarUrl: "fake_url"
     };
 
-    User.create.mockResolvedValueOnce(mockedUser);
+    addUser.mockRejectedValueOnce(() => {
+      throw new Error("not passed password");
+    });
 
-    const result = await addUser(mockedUser);
+    // User.create.mockRejectedValueOnce(() => {
+    //   throw new Error("not passed password");
+    // });
 
-    // expect(User.create).toHaveBeenCalledWith(mockedUser);
-
-    expect(result).toThrow(new Error("not passed password"));
+    expect(async () => await addUser(mockedUser)).toThrow(
+      new Error("not passed password")
+    );
   });
 });
