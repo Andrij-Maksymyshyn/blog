@@ -43,4 +43,14 @@ describe("getSingleUser function", () => {
 
     expect(result).toBeNull();
   });
+
+  it("should return error, when something went wrong", async () => {
+    const error = new Error("Something went wrong");
+
+    User.findOne.mockImplementationOnce(() => {
+      throw error;
+    });
+
+    expect(async () => await getSingleUser(newId)).rejects.toThrow(error);
+  });
 });
