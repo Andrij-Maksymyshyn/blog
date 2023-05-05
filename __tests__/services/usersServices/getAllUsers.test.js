@@ -8,7 +8,7 @@ describe("getAllUsers function", () => {
     jest.resetAllMocks();
   });
 
-  it("should return usersData(& usersTotal) with page = 1, perPage = 3, when we didn't pass query", async () => {
+  it("should return usersData(& usersTotal) with skip = 0, limit = 3, when we didn't pass query", async () => {
     const mockedReturn = {
       data: [
         {
@@ -33,8 +33,40 @@ describe("getAllUsers function", () => {
     await getAllUsers();
 
     expect(User.find).toHaveBeenCalledWith({ isDeleted: false }, "", {
-      limit: 3,
-      skip: 0
+      skip: 0,
+      limit: 3
+    });
+
+    expect(User.count).toHaveReturned();
+  });
+
+  it("should return usersData(& usersTotal) with skip = 6, limit = 3, when we passed query with page = 3 and perPage = 3", async () => {
+    const mockedReturn = {
+      data: [
+        {
+          fullName: "user1"
+        },
+        {
+          fullName: "user2"
+        },
+        {
+          fullName: "user3"
+        }
+      ],
+      page: 3,
+      perPage: Number(3),
+      total: Number(5)
+    };
+
+    User.find.mockResolvedValueOnce(mockedReturn);
+
+    User.count.mockResolvedValueOnce(mockedReturn.total);
+
+    await getAllUsers({ page: 3, perPage: 3 });
+
+    expect(User.find).toHaveBeenCalledWith({ isDeleted: false }, "", {
+      skip: 6,
+      limit: 3
     });
 
     expect(User.count).toHaveReturned();
