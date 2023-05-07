@@ -14,7 +14,7 @@ describe("getSingleUser function", () => {
   it("should return user, when user exists", async () => {
     const mockReturn = {
       _id: id,
-      name: "Andrii",
+      fullName: "Andrij",
       email: "andrij.gmail@com.ua",
       postUrl: "someUrl",
       isDeleted: false

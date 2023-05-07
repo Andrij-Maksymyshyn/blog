@@ -8,68 +8,61 @@ describe("getAllUsers function", () => {
     jest.resetAllMocks();
   });
 
-  it("should return usersData(& usersTotal) with skip = 0, limit = 3, when we didn't pass query", async () => {
-    const mockedReturn = {
-      data: [
-        {
-          fullName: "user1"
-        },
-        {
-          fullName: "user2"
-        },
-        {
-          fullName: "user3"
-        }
-      ],
-      page: 1,
-      perPage: Number(3),
-      total: Number(5)
-    };
+  const mockedData = [
+    {
+      fullName: "user1"
+    },
+    {
+      fullName: "user2"
+    },
+    {
+      fullName: "user3"
+    }
+  ];
 
-    User.find.mockResolvedValueOnce(mockedReturn);
+  it("should return usersData & usersTotal, when we didn't pass query", async () => {
+    User.find.mockResolvedValueOnce(mockedData);
 
-    User.count.mockResolvedValueOnce(mockedReturn.total);
+    User.count.mockResolvedValueOnce(mockedData.length);
 
-    await getAllUsers();
+    const result = await getAllUsers();
 
     expect(User.find).toHaveBeenCalledWith({ isDeleted: false }, "", {
       skip: 0,
       limit: 3
     });
 
-    expect(User.count).toHaveReturned();
+    expect(result).toStrictEqual({
+      data: mockedData,
+      page: 1,
+      perPage: 3,
+      total: mockedData.length
+    });
+
+    expect(result.total).toBe(mockedData.length);
   });
 
-  it("should return usersData(& usersTotal) with skip = 6, limit = 3, when we passed query with page = 3 and perPage = 3", async () => {
-    const mockedReturn = {
-      data: [
-        {
-          fullName: "user1"
-        },
-        {
-          fullName: "user2"
-        },
-        {
-          fullName: "user3"
-        }
-      ],
-      page: 3,
-      perPage: Number(3),
-      total: Number(5)
-    };
+  it("should return usersData & usersTotal, when we passed query with page = 3 and perPage = 3", async () => {
+    User.find.mockResolvedValueOnce(mockedData);
 
-    User.find.mockResolvedValueOnce(mockedReturn);
+    User.count.mockResolvedValueOnce(mockedData.length);
 
-    User.count.mockResolvedValueOnce(mockedReturn.total);
-
-    await getAllUsers({ page: 3, perPage: 3 });
+    const result = await getAllUsers({ page: 3, perPage: 3 });
+    console.log("result:", result);
 
     expect(User.find).toHaveBeenCalledWith({ isDeleted: false }, "", {
       skip: 6,
       limit: 3
     });
 
-    expect(User.count).toHaveReturned();
+    expect(result).toStrictEqual({
+      data: mockedData,
+      page: 3,
+      perPage: 3,
+      total: mockedData.length
+    });
+
+    expect(result.total).toBe(mockedData.length);
   });
 
   it("should return error, when something went wrong", async () => {
