@@ -32,7 +32,7 @@ describe("getAllPosts function", () => {
     }
   ];
 
-  it("should return postsData & postsTotal with filterQuery, sortQuery, skip = 0, limit = 3, when we didn't pass query", async () => {
+  it("should return postsData & postsTotal with filterQuery by default & sortQuery by default, skip = 0, limit = 3, when we didn't pass query to find", async () => {
     Post.find.mockResolvedValueOnce(mockedData);
 
     Post.count.mockResolvedValueOnce(mockedData.length);
