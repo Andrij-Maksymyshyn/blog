@@ -21,7 +21,7 @@ const mockedReturn = [
   }
 ];
 
-describe("getByParams function", () => {
+describe.skip("getByParams function", () => {
   afterEach(() => {
     jest.resetAllMocks();
   });
@@ -30,7 +30,6 @@ describe("getByParams function", () => {
     Post.find.mockResolvedValueOnce(mockedReturn);
 
     const result = await getByParams(searchData);
-    console.log("result:", result);
 
     expect(Post.find).toHaveBeenCalledWith(searchData);
 

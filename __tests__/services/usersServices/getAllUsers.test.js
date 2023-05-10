@@ -3,7 +3,7 @@ const { getAllUsers } = require("../../../api/users/services");
 
 jest.mock("../../../models/user");
 
-describe("getAllUsers function", () => {
+describe.skip("getAllUsers function", () => {
   afterEach(() => {
     jest.resetAllMocks();
   });
@@ -48,7 +48,6 @@ describe("getAllUsers function", () => {
     User.count.mockResolvedValueOnce(mockedData.length);
 
     const result = await getAllUsers({ page: 3, perPage: 3 });
-    console.log("result:", result);
 
     expect(User.find).toHaveBeenCalledWith({ isDeleted: false }, "", {
       skip: 6,

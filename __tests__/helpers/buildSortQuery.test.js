@@ -2,10 +2,10 @@ const { buildSortQuery } = require("../../helpers/buildSortQuery");
 
 describe("buildSortQuery function", () => {
   it("should return query for sorting, when we passed sorting string", () => {
-    const fakedParams = "asc(a),desc(b)";
-    const expectedSortQuery = { a: "1", b: "-1" };
+    const params = "asc(a),desc(b)";
+    const expected = { a: "1", b: "-1" };
 
-    const result = buildSortQuery(fakedParams);
-    expect(result).toStrictEqual(expectedSortQuery);
+    const result = buildSortQuery(params);
+    expect(result).toStrictEqual(expected);
   });
 });
