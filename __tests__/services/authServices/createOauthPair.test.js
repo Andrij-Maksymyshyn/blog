@@ -15,7 +15,7 @@ const mokedtokenPair = {
   user: "489djddk59dlldld78cc"
 };
 
-describe.skip("createOauthPair function", () => {
+describe("createOauthPair function", () => {
   afterEach(() => {
     jest.resetAllMocks();
   });

@@ -21,7 +21,7 @@ const mockedReturn = [
   }
 ];
 
-describe.skip("getByParams function", () => {
+describe("getByParams function", () => {
   afterEach(() => {
     jest.resetAllMocks();
   });

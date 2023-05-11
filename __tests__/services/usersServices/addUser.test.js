@@ -8,7 +8,7 @@ jest.mock("../../../services", () => ({
   hashPassword: jest.fn(() => "hash password")
 }));
 
-describe.skip("addUser function", () => {
+describe("addUser function", () => {
   afterEach(() => {
     jest.resetAllMocks();
   });

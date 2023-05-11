@@ -6,7 +6,7 @@ jest.mock("../../../models/user");
 const id = "123";
 const newId = "12345";
 
-describe.skip("getSingleUser function", () => {
+describe("getSingleUser function", () => {
   afterEach(() => {
     jest.resetAllMocks();
   });

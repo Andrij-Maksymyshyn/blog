@@ -19,7 +19,7 @@ const mockReturn = {
   isDeleted: false
 };
 
-describe.skip("updateById function", () => {
+describe("updateById function", () => {
   afterEach(() => {
     jest.resetAllMocks();
   });

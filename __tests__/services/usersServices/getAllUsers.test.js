@@ -3,7 +3,7 @@ const { getAllUsers } = require("../../../api/users/services");
 
 jest.mock("../../../models/user");
 
-describe.skip("getAllUsers function", () => {
+describe("getAllUsers function", () => {
   afterEach(() => {
     jest.resetAllMocks();
   });

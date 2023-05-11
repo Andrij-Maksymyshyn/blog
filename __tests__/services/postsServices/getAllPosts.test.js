@@ -3,7 +3,7 @@ const { getAllPosts } = require("../../../api/posts/services");
 
 jest.mock("../../../models/post");
 
-describe.skip("getAllPosts function", () => {
+describe("getAllPosts function", () => {
   afterEach(() => {
     jest.resetAllMocks();
   });

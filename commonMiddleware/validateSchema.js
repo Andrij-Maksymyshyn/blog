@@ -17,13 +17,11 @@ const getErrorMessage = (req, schema) => {
   return { message: errorMessage };
 };
 
-const validate = schema => {
-  return (req, _, next) => {
-    const { message } = getErrorMessage(req, schema);
+const validate = schema => (req, _, next) => {
+  const { message } = getErrorMessage(req, schema);
 
-    if (message) return next({ status: BAD_REQUEST, message });
+  if (message) return next({ status: BAD_REQUEST, message });
 
-    next();
-  };
+  next();
 };
 module.exports = validate;
