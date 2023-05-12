@@ -2,6 +2,10 @@ const { objectIdValidator } = require("../../commonMiddleware");
 const { BadRequest } = require("../../errors/ApiError");
 
 describe("objectIdValidator function", () => {
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
+
   it("should pass next truthly value, when id is valid", () => {
     const req = {
       params: {

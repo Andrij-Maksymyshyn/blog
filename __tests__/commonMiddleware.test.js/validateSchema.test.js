@@ -5,6 +5,10 @@ const { validate } = require("../../commonMiddleware");
 const { BAD_REQUEST } = require("../../errors/errorCodes");
 
 describe("validate function", () => {
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
+
   it("should pass next value after validation schema and valid req", () => {
     const schema = {
       params: Joi.object().keys({
