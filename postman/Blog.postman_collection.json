@@ -1,417 +1,351 @@
 {
-	"info": {
-		"_postman_id": "c5424b78-b975-475e-9a16-eb07a9b7893e",
-		"name": "Blog",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "24152383"
-	},
-	"item": [
-		{
-			"name": "GraphQl",
-			"item": [
-				{
-					"name": "addUserGraphQl",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "graphql",
-							"graphql": {
-								"query": "mutation {\r\n  createUser(userInput: { fullName: \"Test User 1\",email: \"test@ukr.net\",password: \"abC1dddd23\",avatarUrl:\"nnn\"}){\r\n    _id,\r\n    fullName,\r\n    email,\r\n    avatarUrl,\r\n    isDeleted\r\n   \r\n  }\r\n}",
-								"variables": ""
-							}
-						},
-						"url": {
-							"raw": "{{api_local}}/graphql/users",
-							"host": [
-								"{{api_local}}"
-							],
-							"path": [
-								"graphql",
-								"users"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "allUsersGraphQl",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "graphql",
-							"graphql": {
-								"query": "{users{\r\n  users {\r\n    fullName\r\n  }\r\n}}",
-								"variables": ""
-							}
-						},
-						"url": {
-							"raw": "{{api_local}}/graphql/users",
-							"host": [
-								"{{api_local}}"
-							],
-							"path": [
-								"graphql",
-								"users"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Create user",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"fullName\": \"Superman\",\r\n    \"email\": \"superman@ukr.net\",\r\n    \"password\": \"3248Pka59\",\r\n    \"password_confirmation\": \"3248Pka59\",\r\n    \"avatarUrl\": \"https://rocket7.s3.eu-central-1.amazonaws.com/user/63c0214b0c6a050f339…\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{api_local}}/api/users",
-					"host": [
-						"{{api_local}}"
-					],
-					"path": [
-						"api",
-						"users"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Create post",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODI1MTM0MjIsImV4cCI6MTY4MjUyMDYyMn0.N-C001pttzNBaFMs7I316BtrD_eRhAko_eQ34ao9Up0",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Animals\",\r\n    \"text\": \"animal researches\",\r\n    \"tags\": [\"whales\", \"elephants\", \"mosquitoes\"]\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{api_local}}/api/posts",
-					"host": [
-						"{{api_local}}"
-					],
-					"path": [
-						"api",
-						"posts"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Login user",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"const jsonBody = JSON.parse(responseBody);\r",
-							"pm.environment.set(\"accessToken\", jsonBody.accessToken);\r",
-							"pm.environment.set(\"refreshToken\", jsonBody.refreshToken);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"batman@ukr.net\",\r\n    \"password\": \"1248Pka59\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{api_local}}/api/auth/login",
-					"host": [
-						"{{api_local}}"
-					],
-					"path": [
-						"api",
-						"auth",
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get all users",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"fullName\": \"Chuvak\",\r\n    \"email\": \"chu@ukr.net\",\r\n    \"password\": \"Skol23452\",\r\n    \"password_confirmation\": \"Skol23452\",\r\n    \"avatarUrl\": \"https://rocket7.s3.eu-central-1.amazonaws.com/user/63d88135c4426fe9839…\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{api_local}}/api/users?page=4&perPage=3",
-					"host": [
-						"{{api_local}}"
-					],
-					"path": [
-						"api",
-						"users"
-					],
-					"query": [
-						{
-							"key": "page",
-							"value": "4"
-						},
-						{
-							"key": "perPage",
-							"value": "3"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get all posts",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{api_local}}/api/posts",
-					"host": [
-						"{{api_local}}"
-					],
-					"path": [
-						"api",
-						"posts"
-					],
-					"query": [
-						{
-							"key": "authorId",
-							"value": "6444040fc4678c997eec9217,6436a056b07083baf6e1c4f9",
-							"disabled": true
-						},
-						{
-							"key": "dateGte",
-							"value": "2023-04-16T00:00:00Z",
-							"disabled": true
-						},
-						{
-							"key": "dateLte",
-							"value": "2023-04-23T00:00:00Z",
-							"disabled": true
-						},
-						{
-							"key": "tag",
-							"value": "trucks,node",
-							"disabled": true
-						},
-						{
-							"key": "page",
-							"value": "3",
-							"disabled": true
-						},
-						{
-							"key": "perPage",
-							"value": "3",
-							"disabled": true
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "My profile",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODM4ODUzODEsImV4cCI6MTY4Mzg5MjU4MX0.6mFcsChshrpbFD1hhmjCeP2JzGOgkn2elTWLb3yNARM",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{api_local}}/api/users/profile",
-					"host": [
-						"{{api_local}}"
-					],
-					"path": [
-						"api",
-						"users",
-						"profile"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update user by id",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"fullName\": \"AndrewMax\",\r\n    \"email\": \"test123@ukr.net\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{api_local}}/api/users/6426e5c619b3b2566555e3de",
-					"host": [
-						"{{api_local}}"
-					],
-					"path": [
-						"api",
-						"users",
-						"6426e5c619b3b2566555e3de"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update post by id",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODI1MTM0MjIsImV4cCI6MTY4MjUyMDYyMn0.N-C001pttzNBaFMs7I316BtrD_eRhAko_eQ34ao9Up0",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Cars\",\r\n    \"text\": \"car technologies\",\r\n    \"tags\": [\r\n        \"trucks\",\r\n        \"motocycles\",\r\n        \"sport cars\"\r\n    ]\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{api_local}}/api/posts/6446750afa3b9e444e43fe8c",
-					"host": [
-						"{{api_local}}"
-					],
-					"path": [
-						"api",
-						"posts",
-						"6446750afa3b9e444e43fe8c"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Delete user by id",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{api_local}}/api/users/644ffbc68dcc17e3de758848",
-					"host": [
-						"{{api_local}}"
-					],
-					"path": [
-						"api",
-						"users",
-						"644ffbc68dcc17e3de758848"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Delete post by id",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODI1MTM0MjIsImV4cCI6MTY4MjUyMDYyMn0.N-C001pttzNBaFMs7I316BtrD_eRhAko_eQ34ao9Up0",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{api_local}}/api/posts/644920acddccb1b1c4f71c82",
-					"host": [
-						"{{api_local}}"
-					],
-					"path": [
-						"api",
-						"posts",
-						"644920acddccb1b1c4f71c82"
-					]
-				}
-			},
-			"response": []
-		}
-	]
+  "info": {
+    "_postman_id": "c5424b78-b975-475e-9a16-eb07a9b7893e",
+    "name": "Blog",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "24152383"
+  },
+  "item": [
+    {
+      "name": "GraphQl",
+      "item": [
+        {
+          "name": "addUserGraphQl",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation {\r\n  createUser(userInput: { fullName: \"Test User 1\",email: \"test@ukr.net\",password: \"abC1dddd23\",avatarUrl:\"nnn\"}){\r\n    _id,\r\n    fullName,\r\n    email,\r\n    avatarUrl,\r\n    isDeleted\r\n   \r\n  }\r\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "{{api_local}}/graphql/users",
+              "host": ["{{api_local}}"],
+              "path": ["graphql", "users"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "allUsersGraphQl",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "{users{\r\n  users {\r\n    fullName\r\n  }\r\n}}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "{{api_local}}/graphql/users",
+              "host": ["{{api_local}}"],
+              "path": ["graphql", "users"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Create user",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"fullName\": \"Superman\",\r\n    \"email\": \"superman@ukr.net\",\r\n    \"password\": \"3248Pka59\",\r\n    \"password_confirmation\": \"3248Pka59\",\r\n    \"avatarUrl\": \"https://rocket7.s3.eu-central-1.amazonaws.com/user/63c0214b0c6a050f339…\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{api_local}}/api/users",
+          "host": ["{{api_local}}"],
+          "path": ["api", "users"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create post",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODI1MTM0MjIsImV4cCI6MTY4MjUyMDYyMn0.N-C001pttzNBaFMs7I316BtrD_eRhAko_eQ34ao9Up0",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Animals\",\r\n    \"text\": \"animal researches\",\r\n    \"tags\": [\"whales\", \"elephants\", \"mosquitoes\"]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{api_local}}/api/posts",
+          "host": ["{{api_local}}"],
+          "path": ["api", "posts"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login user",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const jsonBody = JSON.parse(responseBody);\r",
+              "pm.environment.set(\"accessToken\", jsonBody.accessToken);\r",
+              "pm.environment.set(\"refreshToken\", jsonBody.refreshToken);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"batman@ukr.net\",\r\n    \"password\": \"1248Pka59\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{api_local}}/api/auth/login",
+          "host": ["{{api_local}}"],
+          "path": ["api", "auth", "login"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get all users",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"fullName\": \"Chuvak\",\r\n    \"email\": \"chu@ukr.net\",\r\n    \"password\": \"Skol23452\",\r\n    \"password_confirmation\": \"Skol23452\",\r\n    \"avatarUrl\": \"https://rocket7.s3.eu-central-1.amazonaws.com/user/63d88135c4426fe9839…\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{api_local}}/api/users?page=4&perPage=3",
+          "host": ["{{api_local}}"],
+          "path": ["api", "users"],
+          "query": [
+            {
+              "key": "page",
+              "value": "4"
+            },
+            {
+              "key": "perPage",
+              "value": "3"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get all posts",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{api_local}}/api/posts",
+          "host": ["{{api_local}}"],
+          "path": ["api", "posts"],
+          "query": [
+            {
+              "key": "authorId",
+              "value": "6444040fc4678c997eec9217,6436a056b07083baf6e1c4f9",
+              "disabled": true
+            },
+            {
+              "key": "dateGte",
+              "value": "2023-04-16T00:00:00Z",
+              "disabled": true
+            },
+            {
+              "key": "dateLte",
+              "value": "2023-04-23T00:00:00Z",
+              "disabled": true
+            },
+            {
+              "key": "tag",
+              "value": "trucks,node",
+              "disabled": true
+            },
+            {
+              "key": "page",
+              "value": "3",
+              "disabled": true
+            },
+            {
+              "key": "perPage",
+              "value": "3",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "My profile",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODM4ODUzODEsImV4cCI6MTY4Mzg5MjU4MX0.6mFcsChshrpbFD1hhmjCeP2JzGOgkn2elTWLb3yNARM",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{api_local}}/api/users/profile",
+          "host": ["{{api_local}}"],
+          "path": ["api", "users", "profile"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update user by id",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"fullName\": \"AndrewMax\",\r\n    \"email\": \"test123@ukr.net\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{api_local}}/api/users/6426e5c619b3b2566555e3de",
+          "host": ["{{api_local}}"],
+          "path": ["api", "users", "6426e5c619b3b2566555e3de"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update post by id",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODI1MTM0MjIsImV4cCI6MTY4MjUyMDYyMn0.N-C001pttzNBaFMs7I316BtrD_eRhAko_eQ34ao9Up0",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Cars\",\r\n    \"text\": \"car technologies\",\r\n    \"tags\": [\r\n        \"trucks\",\r\n        \"motocycles\",\r\n        \"sport cars\"\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{api_local}}/api/posts/6446750afa3b9e444e43fe8c",
+          "host": ["{{api_local}}"],
+          "path": ["api", "posts", "6446750afa3b9e444e43fe8c"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete user by id",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{api_local}}/api/users/644ffbc68dcc17e3de758848",
+          "host": ["{{api_local}}"],
+          "path": ["api", "users", "644ffbc68dcc17e3de758848"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete post by id",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODI1MTM0MjIsImV4cCI6MTY4MjUyMDYyMn0.N-C001pttzNBaFMs7I316BtrD_eRhAko_eQ34ao9Up0",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{api_local}}/api/posts/644920acddccb1b1c4f71c82",
+          "host": ["{{api_local}}"],
+          "path": ["api", "posts", "644920acddccb1b1c4f71c82"]
+        }
+      },
+      "response": []
+    }
+  ]
 }
