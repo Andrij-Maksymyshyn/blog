@@ -14,7 +14,8 @@ const userSchema = new mongoose.Schema(
     },
     password: { type: String, minLength: 7, required: true, default: "" },
     avatarUrl: String,
-    isDeleted: { type: Boolean, default: false }
+    isDeleted: { type: Boolean, default: false },
+    dateCreation: { type: Date, default: new Date().toISOString() }
   },
   {
     timestamps: true,

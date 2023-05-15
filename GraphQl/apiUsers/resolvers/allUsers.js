@@ -2,6 +2,7 @@ const { User } = require("../../../models");
 
 const allUsers = async () => {
   const users = await User.find();
+
   return {
     users: users.map(q => {
       return {
@@ -11,6 +12,5 @@ const allUsers = async () => {
     })
   };
 };
-////////////
 
 module.exports = allUsers;
