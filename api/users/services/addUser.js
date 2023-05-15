@@ -2,11 +2,11 @@ const { hashPassword } = require("../../../services");
 const { User } = require("../../../models");
 
 const addUser = async userObject => {
-  const hashedPassword = await hashPassword(userObject.password);
+  const password = hashPassword(userObject.password);
 
-  const newUser = User.create({
+  const newUser = await User.create({
     ...userObject,
-    password: hashedPassword
+    password
   });
 
   return newUser;

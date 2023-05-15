@@ -1,7 +1,9 @@
 const { Oauth } = require("../../../models");
 
-const createOauthPair = tokenData => {
-  return Oauth.create(tokenData);
+const createOauthPair = async tokenData => {
+  const newOauthPair = await Oauth.create(tokenData);
+
+  return newOauthPair;
 };
 
 module.exports = createOauthPair;

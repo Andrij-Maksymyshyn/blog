@@ -4,9 +4,7 @@ const { BadRequest } = require("../errors/ApiError");
 
 const objectIdValidator = paramName => (req, _, next) => {
   try {
-    const isValid = ObjectId.isValid(req.params[paramName]);
-
-    if (!isValid) {
+    if (!ObjectId.isValid(req.params[paramName])) {
       throw new BadRequest("ID is not valid");
     }
 
