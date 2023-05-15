@@ -11,5 +11,6 @@ const allUsers = async () => {
     })
   };
 };
+////////////
 
 module.exports = allUsers;
