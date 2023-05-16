@@ -17,34 +17,74 @@
             "body": {
               "mode": "graphql",
               "graphql": {
-                "query": "mutation {\r\n  createUser(userInput: { fullName: \"Test User 1\",email: \"test@ukr.net\",password: \"abC1dddd23\",avatarUrl:\"nnn\"}){\r\n    _id,\r\n    fullName,\r\n    email,\r\n    avatarUrl,\r\n    isDeleted\r\n   \r\n  }\r\n}",
+                "query": "mutation {\r\n  createUser(userInput: { fullName: \"Test User\",email: \"test@ukr.net\",password: \"abC1ddda44\",avatarUrl:\"yes\"}){\r\n     fullName,\r\n    email,\r\n    avatarUrl,\r\n    isDeleted,\r\n   dateCreation  \r\n  }\r\n}",
                 "variables": ""
               }
             },
             "url": {
-              "raw": "{{api_local}}/graphql/users",
+              "raw": "{{api_local}}/graphql",
               "host": ["{{api_local}}"],
-              "path": ["graphql", "users"]
+              "path": ["graphql"]
             }
           },
           "response": []
         },
         {
-          "name": "allUsersGraphQl",
+          "name": "usersGraphQl",
           "request": {
             "method": "POST",
             "header": [],
             "body": {
               "mode": "graphql",
               "graphql": {
-                "query": "{users{\r\n  users {\r\n    fullName\r\n  }\r\n}}",
+                "query": "{\r\n  users(skip: 2, limit: 3) {\r\n      _id,\r\n    fullName,\r\n    email,\r\n    avatarUrl,\r\n    isDeleted,\r\n    password\r\n  }\r\n}",
                 "variables": ""
               }
             },
             "url": {
-              "raw": "{{api_local}}/graphql/users",
+              "raw": "{{api_local}}/graphql",
               "host": ["{{api_local}}"],
-              "path": ["graphql", "users"]
+              "path": ["graphql"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "updateUserByIdGraphQl",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation {\r\n updateUser(id:\"64638079cf50cbecd287c99f\",\r\n   userInput: { fullName: \"Hello\", email: \"Hello@gmail.com\", avatarUrl: \"haha\"}){\r\n    _id,\r\n    fullName,\r\n    email,\r\n    avatarUrl,\r\n    dateCreation\r\n  }\r\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "{{api_local}}/graphql",
+              "host": ["{{api_local}}"],
+              "path": ["graphql"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "deleteUserByIdGraphQl",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation {\r\n  deleteUser(id:\"64638079cf50cbecd287c99f\"){\r\n    fullName,\r\n    _id,\r\n    email,\r\n    isDeleted\r\n  }\r\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "{{api_local}}/graphql",
+              "host": ["{{api_local}}"],
+              "path": ["graphql"]
             }
           },
           "response": []
@@ -312,9 +352,9 @@
           }
         },
         "url": {
-          "raw": "{{api_local}}/api/users/644ffbc68dcc17e3de758848",
+          "raw": "{{api_local}}/api/users/646157a17321514d0fcce8e7",
           "host": ["{{api_local}}"],
-          "path": ["api", "users", "644ffbc68dcc17e3de758848"]
+          "path": ["api", "users", "646157a17321514d0fcce8e7"]
         }
       },
       "response": []

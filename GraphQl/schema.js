@@ -7,25 +7,28 @@ const schema = buildSchema(`
         email: String!
         password: String!
         avatarUrl: String
-        isDeleted: Boolean
+        isDeleted: Boolean!
         dateCreation: String!
        }
    input UserInputData { 
         fullName: String!
         email: String!
-        password: String!
+        password: String
         avatarUrl: String
         
     }
     type RootMutation {
        createUser(userInput:UserInputData): User!
-    }    
-    type Query {
-    users: [User!],
+       updateUser(id: ID!, userInput:UserInputData): User!
+       deleteUser(id: ID!): User!
+    }
+
+    type RootQuery {
+       users(skip: Int, limit: Int): [User!]!
     }
 
   schema {
-    query: Query
+    query: RootQuery
     mutation: RootMutation
 }
 `);

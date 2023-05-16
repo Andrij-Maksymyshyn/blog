@@ -9,8 +9,8 @@ const mainRouter = require("./routes/mainRouter");
 const { NotFound } = require("./errors/ApiError");
 const { SERVER_ERROR } = require("./errors/errorCodes");
 const { PORT = 5000, DB_HOST, NODE_ENV } = process.env;
-const graphqlUsersSchema = require("./GraphQl/apiUsers/schema");
-const graphqlUsersResolver = require("./GraphQl/apiUsers/resolvers");
+const graphqlSchema = require("./GraphQl/schema");
+const graphqlResolver = require("./GraphQl/resolvers");
 
 const app = express();
 
@@ -21,10 +21,10 @@ app.use(cors());
 app.use(express.json());
 app.use("/", mainRouter);
 app.use(
-  "/graphql/users",
+  "/graphql",
   graphqlHTTP({
-    schema: graphqlUsersSchema,
-    rootValue: graphqlUsersResolver,
+    schema: graphqlSchema,
+    rootValue: graphqlResolver,
     graphiql: true
   })
 );
