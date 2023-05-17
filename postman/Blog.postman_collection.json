@@ -17,7 +17,27 @@
             "body": {
               "mode": "graphql",
               "graphql": {
-                "query": "mutation {\r\n  createUser(userInput: { fullName: \"Test User\",email: \"test@ukr.net\",password: \"abC1ddda44\",avatarUrl:\"yes\"}){\r\n     fullName,\r\n    email,\r\n    avatarUrl,\r\n    isDeleted,\r\n   dateCreation  \r\n  }\r\n}",
+                "query": "mutation {\r\n  createUser(userInput: { fullName: \"Cat\",email: \"caty@ukr.net\",password: \"abC1al4dkO44\",avatarUrl:\"no5\"}){\r\n      _id,\r\n     fullName,\r\n    email,\r\n    avatarUrl,\r\n    isDeleted,\r\n   dateCreation\r\n   }\r\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "{{api_local}}/graphql",
+              "host": ["{{api_local}}"],
+              "path": ["graphql"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "addPostGraphQl",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation {\r\n  createPost(postInput: {title: \"Nature\", text: \"Nature in danger\", tags: [\"animals\", \"flowers\"], accessToken: \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODQzNTc2MDQsImV4cCI6MTY4NDM2NDgwNH0.ZeKFXMtHJwWF9pLAHbkctXlta3NJMhWUNnCC_ciHH5E\"}){\r\n    _id,\r\n    title,\r\n    text,\r\n    tags,\r\n    isDeleted,\r\n    viewsCount,\r\n    imageUrl,\r\n    user,\r\n    date\r\n  }\r\n}",
                 "variables": ""
               }
             },
@@ -37,7 +57,47 @@
             "body": {
               "mode": "graphql",
               "graphql": {
-                "query": "{\r\n  users(skip: 2, limit: 3) {\r\n      _id,\r\n    fullName,\r\n    email,\r\n    avatarUrl,\r\n    isDeleted,\r\n    password\r\n  }\r\n}",
+                "query": "{\r\n  users(skip: 2, limit: 3) {\r\n      _id,\r\n    fullName,\r\n    email,\r\n    avatarUrl,\r\n    dateCreation   \r\n  }\r\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "{{api_local}}/graphql",
+              "host": ["{{api_local}}"],
+              "path": ["graphql"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "loginUserGraphQl",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation {\r\n  loginUser(loginInput: {email:\"batman@ukr.net\", password:\"1248Pka59\"}){\r\n    accessToken,\r\n    refreshToken    \r\n  }\r\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "{{api_local}}/graphql",
+              "host": ["{{api_local}}"],
+              "path": ["graphql"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "postsGraphQl",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "{\r\n  posts(skip: 2, limit: 3) {\r\n      _id,\r\n    title,\r\n    text,\r\n    tags,\r\n    viewsCount,\r\n    imageUrl,\r\n    user,\r\n    isDeleted\r\n     }\r\n}",
                 "variables": ""
               }
             },
@@ -57,7 +117,27 @@
             "body": {
               "mode": "graphql",
               "graphql": {
-                "query": "mutation {\r\n updateUser(id:\"64638079cf50cbecd287c99f\",\r\n   userInput: { fullName: \"Hello\", email: \"Hello@gmail.com\", avatarUrl: \"haha\"}){\r\n    _id,\r\n    fullName,\r\n    email,\r\n    avatarUrl,\r\n    dateCreation\r\n  }\r\n}",
+                "query": "mutation {\r\n updateUser(id:\"6464c6282b015f5e4117f6e8\",\r\n   userInput: { fullName: \"Mimi2\",email: \"mimi2@ukr.net\",avatarUrl: \"ha\"}){\r\n    _id,\r\n    fullName,\r\n    email,\r\n    avatarUrl,\r\n    dateCreation\r\n     }\r\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "{{api_local}}/graphql",
+              "host": ["{{api_local}}"],
+              "path": ["graphql"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "updatePostByIdGraphQl",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation {\r\n  updatePost(id: \"646542ad1ae7468753b60067\", postInput: {title: \"Nature\", text: \"Nature in dange\", tags: [\"animals\"], accessToken: \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODQzNTc2MDQsImV4cCI6MTY4NDM2NDgwNH0.ZeKFXMtHJwWF9pLAHbkctXlta3NJMhWUNnCC_ciHH5E\"}){\r\n    _id,\r\n    title,\r\n    text,\r\n    tags,\r\n    imageUrl,\r\n    isDeleted,\r\n    viewsCount,\r\n    user\r\n  }\r\n}",
                 "variables": ""
               }
             },
@@ -77,7 +157,27 @@
             "body": {
               "mode": "graphql",
               "graphql": {
-                "query": "mutation {\r\n  deleteUser(id:\"64638079cf50cbecd287c99f\"){\r\n    fullName,\r\n    _id,\r\n    email,\r\n    isDeleted\r\n  }\r\n}",
+                "query": "mutation {\r\n  deleteUser(id:\"64638cf82cc5aabd7c730d69\"){\r\n    fullName,\r\n    _id,\r\n    email,\r\n    isDeleted\r\n  }\r\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "{{api_local}}/graphql",
+              "host": ["{{api_local}}"],
+              "path": ["graphql"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "deletePostByIdGraphQl",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation {\r\n  deletePost(id: \"646542ad1ae7468753b60067\", accessToken: \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODQzNTc2MDQsImV4cCI6MTY4NDM2NDgwNH0.ZeKFXMtHJwWF9pLAHbkctXlta3NJMhWUNnCC_ciHH5E\"){\r\n    _id,\r\n    title,\r\n    text,\r\n    tags,\r\n    imageUrl,\r\n    isDeleted,\r\n    date,\r\n    user,\r\n    viewsCount\r\n  }\r\n}\r\n",
                 "variables": ""
               }
             },
@@ -217,14 +317,13 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{api_local}}/api/posts",
+          "raw": "{{api_local}}/api/posts?authorId=6444040fc4678c997eec9217,6436a056b07083baf6e1c4f9",
           "host": ["{{api_local}}"],
           "path": ["api", "posts"],
           "query": [
             {
               "key": "authorId",
-              "value": "6444040fc4678c997eec9217,6436a056b07083baf6e1c4f9",
-              "disabled": true
+              "value": "6444040fc4678c997eec9217,6436a056b07083baf6e1c4f9"
             },
             {
               "key": "dateGte",

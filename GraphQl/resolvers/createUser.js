@@ -19,7 +19,6 @@ const createUser = async ({ userInput }) => {
   });
 
   const createUser = await user.save();
-  delete createUser.password;
 
   return createUser;
 };

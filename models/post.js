@@ -22,8 +22,7 @@ const postSchema = new mongoose.Schema(
     },
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      required: true
+      ref: "User"
     },
     imageUrl: String,
     isDeleted: { type: Boolean, default: false }

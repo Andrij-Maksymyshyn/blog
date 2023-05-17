@@ -12,7 +12,6 @@ const updateUser = async ({ id, userInput }) => {
   user.avatarUrl = userInput.avatarUrl;
 
   const updatedUser = await user.save();
-  delete createUser.password;
 
   return updatedUser;
 };
