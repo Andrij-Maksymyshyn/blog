@@ -25,7 +25,7 @@ const schema = buildSchema(`
     type LoginReturnType{
         accessToken: String!
         refreshToken: String!
-       }    
+       }          
 
    input UserInputData { 
         fullName: String!
@@ -46,6 +46,13 @@ const schema = buildSchema(`
     input LoginInputData {
         email: String!
         password: String!
+    }
+    
+    input QueryInputData{
+        authorId: String
+        dateGte: String
+        dateLte: String
+        tag: String
     } 
 
     type RootMutation {
@@ -60,7 +67,7 @@ const schema = buildSchema(`
 
     type RootQuery {
        users(skip: Int, limit: Int): [User!]!
-       posts(skip: Int, limit: Int): [Post!]!
+       posts(skip: Int, limit: Int, sortBy: String, filterInput: QueryInputData): [Post!]!
     }
 
    schema {

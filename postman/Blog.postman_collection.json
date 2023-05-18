@@ -97,7 +97,7 @@
             "body": {
               "mode": "graphql",
               "graphql": {
-                "query": "{\r\n  posts(skip: 2, limit: 3) {\r\n      _id,\r\n    title,\r\n    text,\r\n    tags,\r\n    viewsCount,\r\n    imageUrl,\r\n    user,\r\n    isDeleted\r\n     }\r\n}",
+                "query": "{\r\n  posts(sortBy: \"asc(_id),asc(title)\", skip: 1, limit: 5, filterInput: {authorId: \"6444040fc4678c997eec9217,6436a056b07083baf6e1c4f9\", dateGte: \"2023-04-16T00:00:00Z\", dateLte: \"2023-04-23T00:00:00Z\", tag: \"trucks,node\"}){\r\n      _id,\r\n    title,\r\n    text, \r\n    tags,\r\n    viewsCount,\r\n    imageUrl,\r\n    user,\r\n    isDeleted\r\n     }\r\n}",
                 "variables": ""
               }
             },
