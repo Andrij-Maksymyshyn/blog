@@ -1,4 +1,5 @@
 const express = require("express");
+const { graphqlHTTP } = require("express-graphql");
 require("dotenv").config();
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -8,6 +9,8 @@ const mainRouter = require("./routes/mainRouter");
 const { NotFound } = require("./errors/ApiError");
 const { SERVER_ERROR } = require("./errors/errorCodes");
 const { PORT = 5000, DB_HOST, NODE_ENV } = process.env;
+const graphqlSchema = require("./GraphQl/schema");
+const graphqlResolver = require("./GraphQl/resolvers");
 
 const app = express();
 
@@ -17,6 +20,15 @@ app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());
 app.use("/", mainRouter);
+app.use(
+  "/graphql",
+  graphqlHTTP({
+    schema: graphqlSchema,
+    rootValue: graphqlResolver,
+    graphiql: true
+  })
+);
+
 app.use("*", notFoundError);
 app.use(mainErrorHandler);
 
