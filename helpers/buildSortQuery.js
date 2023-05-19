@@ -1,4 +1,4 @@
-const buildSortQuery = sortBy => {
+const buildSortQuery = (sortBy = "asc(_id)") => {
   const entries = sortBy
     .split(",")
     .map(e =>

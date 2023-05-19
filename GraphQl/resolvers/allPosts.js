@@ -2,7 +2,7 @@ const { Post } = require("../../models");
 const { buildFilterQuery } = require("../../helpers/buildFilterQuery");
 const { buildSortQuery } = require("../../helpers/buildSortQuery");
 
-const posts = async ({ skip, limit, filterInput, sortBy }) => {
+const posts = async ({ skip, limit, sortBy, filterInput }) => {
   const filterQuery = buildFilterQuery(filterInput);
   const sortQuery = buildSortQuery(sortBy);
 
