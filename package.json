@@ -11,7 +11,7 @@
     "lint": "eslint **/*.js",
     "lint:fix": "eslint --fix **/*.js",
     "prepare": "husky install",
-    "test": "jest --config ./jest.config.js"
+    "test": "jest"
   },
   "repository": {
     "type": "git",

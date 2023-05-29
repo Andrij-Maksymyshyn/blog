@@ -4,8 +4,8 @@
  */
 
 module.exports = {
-  verbose: true,
-  bail: 1,
+  // verbose: true,
+  // bail: 1,
   preset: "ts-jest",
   // All imported modules in your tests should be mocked automatically
   // automock: false,

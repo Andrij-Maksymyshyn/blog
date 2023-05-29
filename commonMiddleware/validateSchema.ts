@@ -29,7 +29,7 @@ const getErrorMessage = (req: Request | any, schema: IDefaultSchema | any) => {
 
 const validate =
   (schema: IDefaultSchema | any) =>
-  (req: Request, res: Response, next: NextFunction) => {
+  (req: Request | any, res: Response | null, next: NextFunction) => {
     const { message } = getErrorMessage(req, schema);
 
     if (message) return next({ status: ErrorCodes.BAD_REQUEST, message });

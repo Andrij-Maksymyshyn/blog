@@ -4,7 +4,8 @@ import { ObjectId } from "mongodb";
 import { BadRequest } from "../errors/ApiError";
 
 const objectIdValidator =
-  (paramName: string) => (req: Request, res: Response, next: NextFunction) => {
+  (paramName: string) =>
+  (req: Request | any, res: Response | null, next: NextFunction) => {
     try {
       if (!ObjectId.isValid(req.params[paramName])) {
         throw new BadRequest("ID is not valid");

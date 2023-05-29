@@ -4,7 +4,6 @@ import "dotenv/config";
 import mongoose from "mongoose";
 import cors from "cors";
 import logger from "morgan";
-import * as bodyParser from "body-parser";
 
 import * as graphqlSchema from "./GraphQl/schema";
 import * as graphqlResolver from "./GraphQl/resolvers";

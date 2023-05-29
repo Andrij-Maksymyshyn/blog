@@ -1,6 +1,6 @@
-const { buildFilterQuery } = require("../../helpers/buildFilterQuery");
+import { buildFilterQuery } from "../../helpers/buildFilterQuery";
 
-describe(skip)("buildFilterQuery function", () => {
+describe("buildFilterQuery function", () => {
   it("should return query for filtering, when we passed query with one param", () => {
     const query = {
       authorId: "123yes"

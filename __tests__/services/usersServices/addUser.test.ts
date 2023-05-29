@@ -2,17 +2,13 @@ import { User } from "../../../models/user";
 import { addUser } from "../../../api/users/services";
 import { hashPassword } from "../../../services";
 
-// jest.mock("../../../models/user");
-
-jest.mock("../../../models/user", () => ({
-  create: jest.fn()
-}));
+jest.mock("../../../models/user");
 
 jest.mock("../../../services", () => ({
   hashPassword: jest.fn(() => "hash password")
 }));
 
-describe.skip("addUser function", () => {
+describe("addUser function", () => {
   afterEach(() => {
     jest.resetAllMocks();
   });
