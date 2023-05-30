@@ -4,11 +4,13 @@
  */
 
 module.exports = {
+  // verbose: true,
+  // bail: 1,
+  preset: "ts-jest",
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
   // Stop running tests after `n` failures
-  // bail: 0,
 
   // The directory where Jest should store its cached dependency information
   // cacheDirectory: "C:\\Users\\User\\AppData\\Local\\Temp\\jest",
@@ -153,6 +155,9 @@ module.exports = {
   // testLocationInResults: false,
 
   // The glob patterns Jest uses to detect test files
+  // transform: {
+  //   "^.+\\.ts?$": "ts-jest"
+  // },
   testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[tj]s?(x)"]
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
