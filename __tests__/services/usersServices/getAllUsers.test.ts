@@ -1,7 +1,7 @@
-import { User } from "../../../models";
-import { getAllUsers } from "../../../api/users/services";
+import { User } from "../../../src/models";
+import { getAllUsers } from "../../../src/api/users/services";
 
-jest.mock("../../../models/user");
+jest.mock("../../../src/models/user");
 
 describe("getAllUsers function", () => {
   afterEach(() => {

@@ -1,10 +1,10 @@
-import { User } from "../../../models/user";
-import { addUser } from "../../../api/users/services";
-import { hashPassword } from "../../../services";
+import { User } from "../../../src/models/user";
+import { addUser } from "../../../src/api/users/services";
+import { hashPassword } from "../../../src/services";
 
-jest.mock("../../../models/user");
+jest.mock("../../../src/models/user");
 
-jest.mock("../../../services", () => ({
+jest.mock("../../../src/services", () => ({
   hashPassword: jest.fn(() => "hash password")
 }));
 

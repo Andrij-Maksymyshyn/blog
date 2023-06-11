@@ -1,4 +1,4 @@
-import { buildSortQuery } from "../../helpers/buildSortQuery";
+import { buildSortQuery } from "../../src/helpers/buildSortQuery";
 
 describe("buildSortQuery function", () => {
   it("should return default query for sorting, when we nothing passed", () => {

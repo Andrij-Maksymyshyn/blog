@@ -6,7 +6,7 @@ import {
   NotFound,
   Conflict,
   ServerError
-} from "../../errors/ApiError";
+} from "../../src/errors/ApiError";
 
 describe("eroor's functions", () => {
   const errorMessage = "Something went wrong";

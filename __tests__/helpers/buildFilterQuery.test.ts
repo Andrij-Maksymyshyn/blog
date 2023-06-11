@@ -1,4 +1,4 @@
-import { buildFilterQuery } from "../../helpers/buildFilterQuery";
+import { buildFilterQuery } from "../../src/helpers/buildFilterQuery";
 
 describe("buildFilterQuery function", () => {
   it("should return query for filtering, when we passed query with one param", () => {

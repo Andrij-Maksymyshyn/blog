@@ -1,7 +1,7 @@
-import { User } from "../../../models/user";
-import { getSingleUser } from "../../../api/users/services";
+import { User } from "../../../src/models/user";
+import { getSingleUser } from "../../../src/api/users/services";
 
-jest.mock("../../../models/user");
+jest.mock("../../../src/models/user");
 
 const id = "123";
 const newId = "12345";

@@ -1,7 +1,7 @@
-import { Oauth } from "../../../models/oauth";
-import { createOauthPair } from "../../../api/auth/services";
+import { Oauth } from "../../../src/models/oauth";
+import { createOauthPair } from "../../../src/api/auth/services";
 
-jest.mock("../../../models/oauth");
+jest.mock("../../../src/models/oauth");
 
 const tokenDataToCreate = {
   accessToken: "123aaa",

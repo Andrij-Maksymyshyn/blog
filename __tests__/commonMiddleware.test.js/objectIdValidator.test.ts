@@ -1,5 +1,5 @@
-import { objectIdValidator } from "../../commonMiddleware";
-import { BadRequest } from "../../errors/ApiError";
+import { objectIdValidator } from "../../src/commonMiddleware";
+import { BadRequest } from "../../src/errors/ApiError";
 
 describe("objectIdValidator function", () => {
   afterEach(() => {

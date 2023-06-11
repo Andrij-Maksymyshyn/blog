@@ -1,7 +1,8 @@
 import Joi from "joi";
 
-import { validate } from "../../commonMiddleware";
-import ErrorCodes from "../../errors/errorCodes";
+import { OBJECT_ID } from "../../src/configs/regexEnum";
+import { validate } from "../../src/commonMiddleware";
+import ErrorCodes from "../../src/errors/errorCodes";
 
 describe("validate function", () => {
   afterEach(() => {
@@ -11,10 +12,7 @@ describe("validate function", () => {
   it("should pass next value after validation schema and valid req", () => {
     const schema = {
       params: Joi.object().keys({
-        userId: Joi.string()
-          .alphanum()
-          .regex(/^([0-9a-fA-F]{24})|([0-9a-fA-F]{24})$/)
-          .required()
+        userId: Joi.string().alphanum().regex(OBJECT_ID).required()
       })
     };
 

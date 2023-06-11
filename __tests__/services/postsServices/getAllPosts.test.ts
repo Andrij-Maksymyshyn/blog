@@ -1,7 +1,7 @@
-import { Post } from "../../../models/post";
-import { getAllPosts } from "../../../api/posts/services";
+import { Post } from "../../../src/models/post";
+import { getAllPosts } from "../../../src/api/posts/services";
 
-jest.mock("../../../models/post");
+jest.mock("../../../src/models/post");
 
 describe("getAllPosts function", () => {
   afterEach(() => {

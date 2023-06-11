@@ -1,7 +1,7 @@
-import { Post } from "../../../models/post";
-import { getByParams } from "../../../api/posts/services";
+import { Post } from "../../../src/models/post";
+import { getByParams } from "../../../src/api/posts/services";
 
-jest.mock("../../../models/post");
+jest.mock("../../../src/models/post");
 
 const searchData = {
   user: "123abc"
